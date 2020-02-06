@@ -9,6 +9,7 @@ index = {"TSData": "80_timeseries_data.ipynb",
          "download_unzip_data_UCR": "80_timeseries_data.ipynb",
          "get_UCR_univariate_list": "80_timeseries_data.ipynb",
          "get_UCR_multivariate_list": "80_timeseries_data.ipynb",
+         "get_ts_items": "81_timeseries_core.ipynb",
          "TensorTS": "81_timeseries_core.ipynb",
          "ToTensorTSBlock": "81_timeseries_core.ipynb",
          "ToTensorTS": "81_timeseries_core.ipynb",
@@ -16,7 +17,10 @@ index = {"TSData": "80_timeseries_data.ipynb",
          "get_stats": "81_timeseries_core.ipynb",
          "Normalize": "81_timeseries_core.ipynb",
          "SelfNormalize": "81_timeseries_core.ipynb",
-         "default_show_batch": "81_timeseries_core.ipynb"}
+         "TSBlock": "81_timeseries_core.ipynb",
+         "default_show_batch": "81_timeseries_core.ipynb",
+         "get_grid": "81_timeseries_core.ipynb",
+         "show_results": "81_timeseries_core.ipynb"}
 
 modules = ["tsdata.py",
            "core.py"]
