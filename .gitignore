@@ -143,3 +143,4 @@ checklink/cookies.txt
 #models checkpoints
 models/
 
+models/stage_1.pth
