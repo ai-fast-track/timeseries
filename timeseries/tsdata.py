@@ -17,15 +17,15 @@ class TSData():
     "self.x is a list of 2D array with a shape (n_samples, nb_channels, sequence_length) "
     "self.y is a 1D array as y (i.e. label) with a shape (n_samples)"
     "for the NATOPS_Train.arff file, the result will be : x(180, 24, 51) and y(180)"
-    # def __init__(self):
-    #     self.x = self.y = self.dsname = self.fnames = []
+    def __init__(self):
+        self.x = self.y = self.dsname = self.fnames = []
 
-     def __init__(self, fnames, has_targets=True, fill_missing='NaN'):
-         self.x = self.y = self.dsname = []
-         self.fnames = fnames
-         self.has_targets = has_targets
-         self.fill_missings = fill_missing
-         load(self, fnames, has_targets=has_targets, fill_missing=fill_missing)
+    # def __init__(self, fnames, has_targets=True, fill_missing='NaN'):
+    #     self.x = self.y = self.dsname = []
+    #     self.fnames = fnames
+    #     self.has_targets = has_targets
+    #     self.fill_missings = fill_missing
+    #     # load(fnames, has_targets=has_targets, fill_missing=fill_missing)
 
 
 

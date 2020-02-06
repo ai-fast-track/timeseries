@@ -2,23 +2,24 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"TensorTS": "80_timeseries_core.ipynb",
-         "ToTensorTS": "80_timeseries_core.ipynb",
-         "LabelTS": "80_timeseries_core.ipynb",
-         "get_stats": "80_timeseries_core.ipynb",
-         "Normalize": "80_timeseries_core.ipynb",
-         "SelfNormalize": "80_timeseries_core.ipynb",
-         "default_show_batch": "80_timeseries_core.ipynb",
-         "TSData": "80_timeseries_data.ipynb",
+index = {"TSData": "80_timeseries_data.ipynb",
          "show_timeseries": "80_timeseries_data.ipynb",
          "download_unzip_data": "80_timeseries_data.ipynb",
          "unzip": "80_timeseries_data.ipynb",
          "download_unzip_data_UCR": "80_timeseries_data.ipynb",
          "get_UCR_univariate_list": "80_timeseries_data.ipynb",
-         "get_UCR_multivariate_list": "80_timeseries_data.ipynb"}
+         "get_UCR_multivariate_list": "80_timeseries_data.ipynb",
+         "TensorTS": "81_timeseries_core.ipynb",
+         "ToTensorTSBlock": "81_timeseries_core.ipynb",
+         "ToTensorTS": "81_timeseries_core.ipynb",
+         "LabelTS": "81_timeseries_core.ipynb",
+         "get_stats": "81_timeseries_core.ipynb",
+         "Normalize": "81_timeseries_core.ipynb",
+         "SelfNormalize": "81_timeseries_core.ipynb",
+         "default_show_batch": "81_timeseries_core.ipynb"}
 
-modules = ["core.py",
-           "tsdata.py"]
+modules = ["tsdata.py",
+           "core.py"]
 
 doc_url = "https://ai-fast-track.github.io/timeseries/"
 
