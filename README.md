@@ -15,3 +15,9 @@ timeseries is built using the fastai2 (fastai v2) which is built on top of Pytor
 Thanks to the new fastai v2 constructs, timeseries is a concise library that enables end-to-end deep learning training of time series in both classification, and regression problems. It uses InceptionTime Neural Network Architectures 
 
 It is tested using the UCR datasets which is usually used to benchmark different NN architectures.
+
+
+![png](docs/images/NATOPS.png)
+
+![png](docs/images/ts-right-arm.png) [png](docs/images/ts-left-arm.png)
+
