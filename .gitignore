@@ -140,8 +140,6 @@ checklink/cookies.txt
 .gitconfig
 
 
-#models checkpoints
-models
 
 #images
 images
@@ -149,4 +147,4 @@ images
 #archives
 archives
 
-models/stage_1.pth
+models/*.pth

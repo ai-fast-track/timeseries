@@ -21,8 +21,6 @@ index = {"TSData": "80_timeseries_data.ipynb",
          "Normalize": "81_timeseries_core.ipynb",
          "TSBlock": "81_timeseries_core.ipynb",
          "default_show_batch": "81_timeseries_core.ipynb",
-         "get_grid": "81_timeseries_core.ipynb",
-         "show_results": "81_timeseries_core.ipynb",
          "get_n_channels": "81_timeseries_core.ipynb"}
 
 modules = ["data.py",
