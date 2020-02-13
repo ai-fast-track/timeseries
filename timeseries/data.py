@@ -5,7 +5,6 @@ __all__ = ['TSData', 'get_ts_items', 'show_timeseries', 'download_unzip_data', '
 
 # Cell
 from fastai2.torch_basics import *
-# from fastai2.test import *
 from fastai2.data.all import *
 
 # Cell
@@ -147,10 +146,14 @@ def show_timeseries(ts, ctx=None, title=None, chs=None, leg=True, **kwargs):
     Plot a timeseries.
 
     Args:
-      title : usually the class of the timeseries
-      ts : timeseries. It should have a shape of (nb_channels, sequence_length)
-      chs : array representing a list of channels to plot
-      leg : Display or not a legend
+
+        title : usually the class of the timeseries
+
+        ts : timeseries. It should have a shape of (nb_channels, sequence_length)
+
+        chs : array representing a list of channels to plot
+
+        leg : Display or not a legend
     """
 
     if ctx is None: fig, ctx = plt.subplots()
