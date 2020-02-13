@@ -12,6 +12,16 @@ from .data import *
 from .models.inception_time import *
 
 # Cell
+from fastai2.vision.data import get_grid
+from fastai2.learner import *
+from fastai2.metrics import *
+from fastai2.optimizer import *
+from fastai2.callback.hook import *
+from fastai2.callback.schedule import *
+from fastai2.callback.progress import *
+# from fastai2.callback.mixup import *
+
+# Cell
 def test_eq_tensor(a,b):
     "assert tensor equality"
     assert (a-b).pow(2).sum() <= 1e-10, f"{a}\n{b}"
