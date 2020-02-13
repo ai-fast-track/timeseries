@@ -17,7 +17,8 @@ Thanks to the new fastai v2 constructs, timeseries is a concise library that ena
 It is tested using the UCR datasets which is usually used to benchmark different NN architectures.
 
 
-![png](docs/images/NATOPS.png)
+![png](docs/images/NATOPS.jpg)
 
-![png](docs/images/ts-right-arm.png) [png](docs/images/ts-left-arm.png)
+![png](docs/images/ts-right-arm.png) 
+![png](docs/images/ts-left-arm.png)
 
