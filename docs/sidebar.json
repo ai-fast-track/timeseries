@@ -1,10 +1,8 @@
 {
-  "Notebook": {
-    "Export to modules": "/export",
-    "Convert to html": "/export2html",
-    "Show doc": "/showdoc",
-    "Test functions": "/test",
-    "Core functions": "/core",
-    "Command line functions": "/cli"
+  "timeseries": {
+    "Overview": "/",
+    "timeseries_data": "/timeseries_data",
+    "timeseries_core": "/timeseries_core",
+    "tutorial_timeseries": "/tutorial_timeseries"
   }
 }
