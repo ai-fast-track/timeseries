@@ -1,8 +1,7 @@
 {
   "timeseries": {
     "Overview": "/",
-    "timeseries_data": "/timeseries_data",
-    "timeseries_core": "/timeseries_core",
-    "tutorial_timeseries": "/tutorial_timeseries"
+    "Timeseries - Read data": "/timeseries_data",
+    "timeseries_core": "/timeseries_core"
   }
 }
