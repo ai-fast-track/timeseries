@@ -36,7 +36,7 @@ class InceptionModule(Module):
         bottled = self.bottleneck(x)
         return self.bn_relu(torch.cat([c(bottled) for c in self.convs]+[self.maxpool_bottleneck(x)], dim=1))
 
-def create_inception(ni, nout, ks=40, depth=6, bottleneck_size=32, nb_filters=32, head=True):
+def inception_time(ni, nout, ks=40, depth=6, bottleneck_size=32, nb_filters=32, head=True):
     layers = []
     
     # compute kernel sizes: eg for ks=40 => kss=[39, 19, 9] 

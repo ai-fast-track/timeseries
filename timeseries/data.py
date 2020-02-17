@@ -24,11 +24,10 @@ class TSData():
     #     self.fnames = fnames
     #     self.has_targets = has_targets
     #     self.fill_missings = fill_missing
-    #     # load(fnames, has_targets=has_targets, fill_missing=fill_missing)
 
 
 
-    def __repr__(self): return f"{self.__class__.__name__}:\n Datasets names (concatenated): {self.dsname}\n Filenames: \                   {self.fnames}\n Data shape: {self.x.shape}\n Targets shape: {self.y.shape}\n Nb Samples: {self.x.shape[0]}\n Nb Channels: \         {self.x.shape[1]}\n Sequence Length: {self.x.shape[2]}"
+    def __repr__(self): return f"{self.__class__.__name__}:\n Datasets names (concatenated): {self.dsname}\n Filenames:                     {self.fnames}\n Data shape: {self.x.shape}\n Targets shape: {self.y.shape}\n Nb Samples: {self.x.shape[0]}\n Nb Channels:           {self.x.shape[1]}\n Sequence Length: {self.x.shape[2]}"
 
     def get_x(self, as_list=True): return(list(self.x))
     def get_y(self): return(self.y)
