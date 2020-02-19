@@ -31,8 +31,8 @@ class TSData():
 
     def get_x(self, as_list=True): return(list(self.x))
     def get_y(self): return(self.y)
-    def get_items(self): return [(item, label) for (item, label) in zip(list(self.x), self.y)]
-    def __getitem__(self, i): return (self.x[i], self.y[i])
+    def get_items(self): return [(item, str(label)) for (item, label) in zip(list(self.x), self.y)]
+    def __getitem__(self, i): return (self.x[i], str(self.y[i]))
 
     @property
     def sizes(self): return (self.x.shape, self.y.shape)
