@@ -117,7 +117,7 @@ path
 
 
 
-    Path('C:/Users/fh/.fastai/data/NATOPS')
+    Path('/home/farid/.fastai/data/NATOPS')
 
 
 
@@ -134,8 +134,8 @@ fnames
 
 
 
-    [Path('C:/Users/fh/.fastai/data/NATOPS/NATOPS_TRAIN.arff'),
-     Path('C:/Users/fh/.fastai/data/NATOPS/NATOPS_TEST.arff')]
+    [Path('/home/farid/.fastai/data/NATOPS/NATOPS_TRAIN.arff'),
+     Path('/home/farid/.fastai/data/NATOPS/NATOPS_TEST.arff')]
 
 
 
@@ -146,7 +146,7 @@ print(data)
 
     TSData:
      Datasets names (concatenated): ['NATOPS_TRAIN', 'NATOPS_TEST']
-     Filenames:                     [Path('C:/Users/fh/.fastai/data/NATOPS/NATOPS_TRAIN.arff'), Path('C:/Users/fh/.fastai/data/NATOPS/NATOPS_TEST.arff')]
+     Filenames:                     [Path('/home/farid/.fastai/data/NATOPS/NATOPS_TRAIN.arff'), Path('/home/farid/.fastai/data/NATOPS/NATOPS_TEST.arff')]
      Data shape: (360, 24, 51)
      Targets shape: (360,)
      Nb Samples: 360
@@ -265,7 +265,7 @@ tsdb.summary(fnames)
 ```
 
     Setting-up type transforms pipelines
-    Collecting items from [Path('C:/Users/fh/.fastai/data/NATOPS/NATOPS_TRAIN.arff'), Path('C:/Users/fh/.fastai/data/NATOPS/NATOPS_TEST.arff')]
+    Collecting items from [Path('/home/farid/.fastai/data/NATOPS/NATOPS_TRAIN.arff'), Path('/home/farid/.fastai/data/NATOPS/NATOPS_TEST.arff')]
     Found 360 items
     2 datasets of sizes 288,72
     Setting up Pipeline: itemgetter -> ToTensorTS
@@ -303,7 +303,7 @@ tsdb.summary(fnames)
         applying itemgetter gives
           2.0
         applying Categorize gives
-          TensorCategory(1, dtype=torch.int32)
+          TensorCategory(1)
     
     Final sample: (TensorTS([[-0.5406, -0.5410, -0.5406,  ..., -0.5630, -0.5663, -0.5537],
             [-1.5396, -1.5400, -1.5390,  ..., -1.5320, -1.5346, -1.5360],
@@ -311,7 +311,7 @@ tsdb.summary(fnames)
             ...,
             [ 0.4545,  0.4499,  0.4532,  ...,  0.4803,  0.4554,  0.4573],
             [-1.4114, -1.3635, -1.3909,  ..., -1.4681, -1.3687, -1.3866],
-            [-0.4734, -0.4533, -0.4638,  ..., -0.4406, -0.4272, -0.4356]]), TensorCategory(1, dtype=torch.int32))
+            [-0.4734, -0.4533, -0.4638,  ..., -0.4406, -0.4272, -0.4356]]), TensorCategory(1))
     
     
     Setting up after_item: Pipeline: ToTensor
@@ -322,9 +322,9 @@ tsdb.summary(fnames)
     Applying item_tfms to the first sample:
       Pipeline: ToTensor
         starting from
-          (TensorTS of size 24x51, TensorCategory(1, dtype=torch.int32))
+          (TensorTS of size 24x51, TensorCategory(1))
         applying ToTensor gives
-          (TensorTS of size 24x51, TensorCategory(1, dtype=torch.int32))
+          (TensorTS of size 24x51, TensorCategory(1))
     
     Adding the next 3 samples
     
@@ -335,9 +335,9 @@ tsdb.summary(fnames)
     Applying batch_tfms to the batch built
       Pipeline: Normalize
         starting from
-          (TensorTS of size 4x24x51, TensorCategory([1, 5, 4, 5], dtype=torch.int32))
+          (TensorTS of size 4x24x51, TensorCategory([1, 5, 4, 5]))
         applying Normalize gives
-          (TensorTS of size 4x24x51, TensorCategory([1, 5, 4, 5], dtype=torch.int32))
+          (TensorTS of size 4x24x51, TensorCategory([1, 5, 4, 5]))
 
 
 ```python
@@ -689,7 +689,7 @@ print(learn.summary())
     Total trainable params: 472,742
     Total non-trainable params: 0
     
-    Optimizer used: functools.partial(<function Adam at 0x0000019FF7BFFB70>, lr=0.003, wd=0.01)
+    Optimizer used: functools.partial(<function Adam at 0x7fb561b281e0>, lr=0.003, wd=0.01)
     Loss function: LabelSmoothingCrossEntropy()
     
     Callbacks:
@@ -712,7 +712,7 @@ lr_min, lr_steep
 
 
 
-    (0.00831763744354248, 0.00019054606673307717)
+    (0.017378008365631102, 0.00019054606673307717)
 
 
 
@@ -743,213 +743,213 @@ learn.fit_one_cycle(epochs, lr_max=lr_max, pct_start=pct_start,  moms=moms, wd=w
   <tbody>
     <tr>
       <td>0</td>
-      <td>2.038154</td>
-      <td>1.790302</td>
+      <td>2.049755</td>
+      <td>1.790285</td>
       <td>0.222222</td>
-      <td>00:00</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>1.975919</td>
-      <td>1.789364</td>
+      <td>1.991381</td>
+      <td>1.789341</td>
       <td>0.152778</td>
-      <td>00:00</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>1.916542</td>
-      <td>1.791770</td>
+      <td>1.931044</td>
+      <td>1.791743</td>
       <td>0.277778</td>
-      <td>00:00</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>1.841713</td>
-      <td>1.798355</td>
+      <td>1.858167</td>
+      <td>1.798326</td>
       <td>0.236111</td>
-      <td>00:00</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>1.753194</td>
-      <td>1.807401</td>
+      <td>1.769086</td>
+      <td>1.807165</td>
       <td>0.222222</td>
-      <td>00:00</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>1.653487</td>
-      <td>1.815947</td>
+      <td>1.665333</td>
+      <td>1.815545</td>
       <td>0.236111</td>
-      <td>00:00</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>1.546923</td>
-      <td>1.814128</td>
+      <td>1.561009</td>
+      <td>1.814330</td>
       <td>0.236111</td>
-      <td>00:00</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>1.443474</td>
-      <td>1.763983</td>
-      <td>0.333333</td>
-      <td>00:00</td>
+      <td>1.457204</td>
+      <td>1.763273</td>
+      <td>0.319444</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>1.347179</td>
-      <td>1.616480</td>
+      <td>1.357733</td>
+      <td>1.615611</td>
       <td>0.430556</td>
-      <td>00:00</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>1.256684</td>
-      <td>1.352610</td>
-      <td>0.569444</td>
-      <td>00:00</td>
+      <td>1.265938</td>
+      <td>1.349601</td>
+      <td>0.583333</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>1.176995</td>
-      <td>1.064321</td>
-      <td>0.694444</td>
-      <td>00:00</td>
+      <td>1.185148</td>
+      <td>1.054630</td>
+      <td>0.736111</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>11</td>
-      <td>1.107792</td>
-      <td>0.860034</td>
-      <td>0.805556</td>
-      <td>00:00</td>
+      <td>1.115436</td>
+      <td>0.849767</td>
+      <td>0.847222</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>1.047083</td>
-      <td>0.751563</td>
-      <td>0.861111</td>
-      <td>00:00</td>
+      <td>1.054122</td>
+      <td>0.747256</td>
+      <td>0.888889</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>0.993387</td>
-      <td>0.711832</td>
-      <td>0.819444</td>
-      <td>00:00</td>
+      <td>1.001389</td>
+      <td>0.708441</td>
+      <td>0.847222</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>14</td>
-      <td>0.946158</td>
-      <td>0.706730</td>
-      <td>0.805556</td>
-      <td>00:00</td>
+      <td>0.952978</td>
+      <td>0.692037</td>
+      <td>0.888889</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>15</td>
-      <td>0.903780</td>
-      <td>0.692697</td>
-      <td>0.833333</td>
-      <td>00:00</td>
+      <td>0.909908</td>
+      <td>0.686056</td>
+      <td>0.805556</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>16</td>
-      <td>0.865470</td>
-      <td>0.676128</td>
-      <td>0.916667</td>
-      <td>00:00</td>
+      <td>0.871356</td>
+      <td>0.680254</td>
+      <td>0.847222</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>17</td>
-      <td>0.831177</td>
-      <td>0.670037</td>
-      <td>0.888889</td>
-      <td>00:00</td>
+      <td>0.835365</td>
+      <td>0.660258</td>
+      <td>0.930556</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>18</td>
-      <td>0.798707</td>
-      <td>0.655805</td>
-      <td>0.902778</td>
-      <td>00:00</td>
+      <td>0.802763</td>
+      <td>0.659760</td>
+      <td>0.875000</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>19</td>
-      <td>0.768377</td>
-      <td>0.644907</td>
-      <td>0.902778</td>
-      <td>00:00</td>
+      <td>0.772280</td>
+      <td>0.648381</td>
+      <td>0.875000</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>20</td>
-      <td>0.741131</td>
-      <td>0.626030</td>
-      <td>0.916667</td>
-      <td>00:00</td>
+      <td>0.743905</td>
+      <td>0.634995</td>
+      <td>0.888889</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>21</td>
-      <td>0.715209</td>
-      <td>0.593931</td>
-      <td>0.944444</td>
-      <td>00:00</td>
+      <td>0.718260</td>
+      <td>0.611834</td>
+      <td>0.916667</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>22</td>
-      <td>0.691639</td>
-      <td>0.660717</td>
-      <td>0.875000</td>
-      <td>00:00</td>
+      <td>0.694989</td>
+      <td>0.634425</td>
+      <td>0.902778</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>23</td>
-      <td>0.669534</td>
-      <td>0.631550</td>
-      <td>0.888889</td>
-      <td>00:00</td>
+      <td>0.673135</td>
+      <td>0.572090</td>
+      <td>0.958333</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>24</td>
-      <td>0.649253</td>
-      <td>0.572620</td>
+      <td>0.653333</td>
+      <td>0.591838</td>
       <td>0.944444</td>
-      <td>00:00</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>25</td>
-      <td>0.630703</td>
-      <td>0.559287</td>
-      <td>0.944444</td>
-      <td>00:00</td>
+      <td>0.635208</td>
+      <td>0.628711</td>
+      <td>0.916667</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>26</td>
-      <td>0.614120</td>
-      <td>0.565560</td>
-      <td>0.930556</td>
-      <td>00:00</td>
+      <td>0.618674</td>
+      <td>0.552348</td>
+      <td>0.944444</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>27</td>
-      <td>0.598694</td>
-      <td>0.558194</td>
-      <td>0.930556</td>
-      <td>00:00</td>
+      <td>0.603296</td>
+      <td>0.553731</td>
+      <td>0.944444</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>28</td>
-      <td>0.585236</td>
-      <td>0.554890</td>
+      <td>0.589435</td>
+      <td>0.553788</td>
       <td>0.930556</td>
-      <td>00:00</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>29</td>
-      <td>0.572821</td>
-      <td>0.554053</td>
+      <td>0.576846</td>
+      <td>0.556141</td>
       <td>0.930556</td>
-      <td>00:00</td>
+      <td>00:01</td>
     </tr>
   </tbody>
 </table>
