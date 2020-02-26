@@ -13,8 +13,8 @@ entries:
       title: Timeseries - Read data
       url: /timeseries_data
     - output: web,pdf
-      title: timeseries_core
-      url: /timeseries_core
+      title: Title
+      url: /Colab_timeseries_Tutorial
     output: web
     title: timeseries
   output: web
