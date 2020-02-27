@@ -10,7 +10,7 @@
 ## Installing **`timeseries`** on local machine as an editable package
 
 1- Only if you have not already installed `fastai v2` 
-Install [fastai2](https://dev.fast.ai/#Installing) by foolwing the steps described there.
+Install [fastai2](https://dev.fast.ai/#Installing) by following the steps described there.
 
 2- Install timeseries package by following the instructions here below:
 
@@ -20,35 +20,35 @@ cd timeseries
 pip install -e .
 ```
 
-# Installing **`timeseries`**  in Google Colab - Start Here
+# pip installing **`timeseries`** from repo either locally or in Google Colab - Start Here
 
 ## Installing fastai v2
 
-```python
+```
 !pip install git+https://github.com/fastai/fastai2.git
 ```
 
 ## Installing `timeseries` package from github
 
-```python
+```
 !pip install git+https://github.com/ai-fast-track/timeseries.git
 ```
 
-# *Installing in Google Colab - End Here*
+# *pip Installing - End Here*
 
 # `Usage`
 
-```python
+```
 %reload_ext autoreload
 %autoreload 2
 %matplotlib inline
 ```
 
-```python
+```
 from fastai2.basics import *
 ```
 
-```python
+```
 from timeseries.all import *
 ```
 
@@ -104,11 +104,11 @@ The six classes are separate actions, with the following meaning:
 
 ## Download data using `download_unzip_data_UCR(dsname=dsname)` method
 
-```python
+```
 dsname =  'NATOPS' #'NATOPS', 'LSST', 'Wine', 'Epilepsy', 'HandMovementDirection'
 ```
 
-```python
+```
 # url = 'http://www.timeseriesclassification.com/Downloads/NATOPS.zip'
 path = unzip_data(URLs_TS.NATOPS)
 path
@@ -124,7 +124,7 @@ path
 ## Why do I have to concatenate train and test data?
 Both Train and Train dataset contains 180 samples each. We concatenate them in order to have one big dataset and then split into train and valid dataset using our own split percentage (20%, 30%, or whatever number you see fit)
 
-```python
+```
 fname_train = f'{dsname}_TRAIN.arff'
 fname_test = f'{dsname}_TEST.arff'
 fnames = [path/fname_train, path/fname_test]
@@ -139,7 +139,7 @@ fnames
 
 
 
-```python
+```
 data = TSData.from_arff(fnames)
 print(data)
 ```
@@ -154,11 +154,11 @@ print(data)
      Sequence Length: 51
 
 
-```python
+```
 items = data.get_items()
 ```
 
-```python
+```
 idx = 1
 x1, y1 = data.x[idx],  data.y[idx]
 y1
@@ -171,7 +171,7 @@ y1
 
 
 
-```python
+```
 
 # You can select any channel to display buy supplying a list of channels and pass it to `chs` argument
 # LEFT ARM
@@ -179,17 +179,17 @@ y1
 
 ```
 
-```python
+```
 # RIGHT ARM
 # show_timeseries(x1, title=y1, chs=[3,4,5,9,10,11,15,16,17,21,22,23])
 ```
 
-```python
+```
 # ?show_timeseries(x1, title=y1, chs=range(0,24,3)) # Only the x axis coordinates
 
 ```
 
-```python
+```
 seed = 42
 splits = RandomSplitter(seed=seed)(range_of(items)) #by default 80% for train split and 20% for valid split are chosen 
 splits
@@ -207,14 +207,14 @@ splits
 
 ## Creating a Datasets object
 
-```python
+```
 tfms = [[ItemGetter(0), ToTensorTS()], [ItemGetter(1), Categorize()]]
 
 # Create a dataset
 ds = Datasets(items, tfms, splits=splits)
 ```
 
-```python
+```
 ax = show_at(ds, 2, figsize=(1,1))
 ```
 
@@ -229,7 +229,7 @@ ax = show_at(ds, 2, figsize=(1,1))
 
 ## 1st method : using `Datasets` object
 
-```python
+```
 bs = 128                            
 # Normalize at batch time
 tfm_norm = Normalize(scale_subtype = 'per_sample_per_channel', scale_range=(0, 1)) # per_sample , per_sample_per_channel
@@ -239,7 +239,7 @@ batch_tfms = [tfm_norm]
 dls1 = ds.dataloaders(bs=bs, val_bs=bs * 2, after_batch=batch_tfms, num_workers=0, device=default_device()) 
 ```
 
-```python
+```
 dls1.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
@@ -251,7 +251,7 @@ dls1.show_batch(max_n=9, chs=range(0,12,3))
 
 ## 2nd method : using `DataBlock` and `DataBlock.get_items()` 
 
-```python
+```
 getters = [ItemGetter(0), ItemGetter(1)]  
 tsdb = DataBlock(blocks=(TSBlock, CategoryBlock),
                    get_items=get_ts_items,
@@ -260,7 +260,7 @@ tsdb = DataBlock(blocks=(TSBlock, CategoryBlock),
                    batch_tfms = batch_tfms)
 ```
 
-```python
+```
 tsdb.summary(fnames)
 ```
 
@@ -340,12 +340,12 @@ tsdb.summary(fnames)
           (TensorTS of size 4x24x51, TensorCategory([1, 5, 4, 5]))
 
 
-```python
+```
 # num_workers=0 is Microsoft Windows
 dls2 = tsdb.dataloaders(fnames, num_workers=0, device=default_device())
 ```
 
-```python
+```
 dls2.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
@@ -355,18 +355,18 @@ dls2.show_batch(max_n=9, chs=range(0,12,3))
 
 ## 3rd method : using `DataBlock` and passing `items` object to the `DataBlock.dataloaders()`
 
-```python
+```
 getters = [ItemGetter(0), ItemGetter(1)] 
 tsdb = DataBlock(blocks=(TSBlock, CategoryBlock),
                    getters=getters,
                    splitter=RandomSplitter(seed=seed))
 ```
 
-```python
+```
 dls3 = tsdb.dataloaders(data.get_items(), batch_tfms=batch_tfms, num_workers=0, device=default_device())
 ```
 
-```python
+```
 dls3.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
@@ -376,11 +376,11 @@ dls3.show_batch(max_n=9, chs=range(0,12,3))
 
 ## 4th method : using `TSDataLoaders` class and `TSDataLoaders.from_files()`
 
-```python
+```
 dls4 = TSDataLoaders.from_files(fnames, batch_tfms=batch_tfms, num_workers=0, device=default_device())
 ```
 
-```python
+```
 dls4.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
@@ -390,11 +390,11 @@ dls4.show_batch(max_n=9, chs=range(0,12,3))
 
 # Train Model
 
-```python
+```
 # Number of channels (i.e. dimensions in ARFF and TS files jargon)
-c_in = get_n_channels(dls4.train) # data.n_channels
+c_in = get_n_channels(dls2.train) # data.n_channels
 # Number of classes
-c_out= dls1.c 
+c_out= dls2.c 
 c_in,c_out
 ```
 
@@ -407,7 +407,7 @@ c_in,c_out
 
 ## Create model
 
-```python
+```
 model = inception_time(c_in, c_out).to(device=default_device())
 model
 ```
@@ -557,11 +557,11 @@ model
 
 ## Create Learner object
 
-```python
+```
 #Learner
 opt_func = partial(Adam, lr=3e-3, wd=0.01)     
 loss_func = LabelSmoothingCrossEntropy() 
-learn = Learner(dls4, model, opt_func=opt_func, loss_func=loss_func, metrics=accuracy)
+learn = Learner(dls2, model, opt_func=opt_func, loss_func=loss_func, metrics=accuracy)
 
 print(learn.summary())
 ```
@@ -689,7 +689,7 @@ print(learn.summary())
     Total trainable params: 472,742
     Total non-trainable params: 0
     
-    Optimizer used: functools.partial(<function Adam at 0x7fb561b281e0>, lr=0.003, wd=0.01)
+    Optimizer used: functools.partial(<function Adam at 0x7f1020047268>, lr=0.003, wd=0.01)
     Loss function: LabelSmoothingCrossEntropy()
     
     Callbacks:
@@ -700,7 +700,7 @@ print(learn.summary())
 
 ## LR find 
 
-```python
+```
 lr_min, lr_steep = learn.lr_find()
 lr_min, lr_steep
 ```
@@ -712,7 +712,7 @@ lr_min, lr_steep
 
 
 
-    (0.017378008365631102, 0.00019054606673307717)
+    (0.012022644281387329, 0.00015848931798245758)
 
 
 
@@ -722,7 +722,7 @@ lr_min, lr_steep
 
 ## Train
 
-```python
+```
 #lr_max=1e-3
 epochs=30; lr_max=lr_steep;  pct_start=.7; moms=(0.95,0.85,0.95); wd=1e-2
 learn.fit_one_cycle(epochs, lr_max=lr_max, pct_start=pct_start,  moms=moms, wd=wd)
@@ -743,211 +743,211 @@ learn.fit_one_cycle(epochs, lr_max=lr_max, pct_start=pct_start,  moms=moms, wd=w
   <tbody>
     <tr>
       <td>0</td>
-      <td>2.049755</td>
-      <td>1.790285</td>
-      <td>0.222222</td>
+      <td>2.074657</td>
+      <td>1.791457</td>
+      <td>0.111111</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>1.991381</td>
-      <td>1.789341</td>
-      <td>0.152778</td>
+      <td>2.036341</td>
+      <td>1.794805</td>
+      <td>0.222222</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>1.931044</td>
-      <td>1.791743</td>
-      <td>0.277778</td>
+      <td>1.967589</td>
+      <td>1.801219</td>
+      <td>0.194444</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>1.858167</td>
-      <td>1.798326</td>
-      <td>0.236111</td>
+      <td>1.907410</td>
+      <td>1.811156</td>
+      <td>0.111111</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>1.769086</td>
-      <td>1.807165</td>
-      <td>0.222222</td>
-      <td>00:02</td>
+      <td>1.830923</td>
+      <td>1.824593</td>
+      <td>0.125000</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>1.665333</td>
-      <td>1.815545</td>
-      <td>0.236111</td>
+      <td>1.737747</td>
+      <td>1.838160</td>
+      <td>0.125000</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>1.561009</td>
-      <td>1.814330</td>
-      <td>0.236111</td>
+      <td>1.637866</td>
+      <td>1.845915</td>
+      <td>0.152778</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>1.457204</td>
-      <td>1.763273</td>
-      <td>0.319444</td>
+      <td>1.537755</td>
+      <td>1.811093</td>
+      <td>0.250000</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>1.357733</td>
-      <td>1.615611</td>
-      <td>0.430556</td>
+      <td>1.440116</td>
+      <td>1.678763</td>
+      <td>0.347222</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>1.265938</td>
-      <td>1.349601</td>
-      <td>0.583333</td>
-      <td>00:02</td>
+      <td>1.347069</td>
+      <td>1.426239</td>
+      <td>0.472222</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>1.185148</td>
-      <td>1.054630</td>
-      <td>0.736111</td>
-      <td>00:02</td>
+      <td>1.261488</td>
+      <td>1.127280</td>
+      <td>0.708333</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>11</td>
-      <td>1.115436</td>
-      <td>0.849767</td>
-      <td>0.847222</td>
-      <td>00:02</td>
+      <td>1.186033</td>
+      <td>0.902298</td>
+      <td>0.763889</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>1.054122</td>
-      <td>0.747256</td>
-      <td>0.888889</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>13</td>
-      <td>1.001389</td>
-      <td>0.708441</td>
-      <td>0.847222</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>14</td>
-      <td>0.952978</td>
-      <td>0.692037</td>
-      <td>0.888889</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>15</td>
-      <td>0.909908</td>
-      <td>0.686056</td>
+      <td>1.119337</td>
+      <td>0.776306</td>
       <td>0.805556</td>
       <td>00:02</td>
     </tr>
     <tr>
-      <td>16</td>
-      <td>0.871356</td>
-      <td>0.680254</td>
-      <td>0.847222</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>17</td>
-      <td>0.835365</td>
-      <td>0.660258</td>
-      <td>0.930556</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>18</td>
-      <td>0.802763</td>
-      <td>0.659760</td>
-      <td>0.875000</td>
+      <td>13</td>
+      <td>1.059979</td>
+      <td>0.721000</td>
+      <td>0.805556</td>
       <td>00:01</td>
     </tr>
     <tr>
-      <td>19</td>
-      <td>0.772280</td>
-      <td>0.648381</td>
-      <td>0.875000</td>
-      <td>00:02</td>
+      <td>14</td>
+      <td>1.007478</td>
+      <td>0.703485</td>
+      <td>0.819444</td>
+      <td>00:01</td>
     </tr>
     <tr>
-      <td>20</td>
-      <td>0.743905</td>
-      <td>0.634995</td>
+      <td>15</td>
+      <td>0.961167</td>
+      <td>0.691761</td>
+      <td>0.847222</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>0.920341</td>
+      <td>0.674642</td>
       <td>0.888889</td>
       <td>00:01</td>
     </tr>
     <tr>
+      <td>17</td>
+      <td>0.881278</td>
+      <td>0.681701</td>
+      <td>0.847222</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>0.845703</td>
+      <td>0.679938</td>
+      <td>0.861111</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>0.812817</td>
+      <td>0.668800</td>
+      <td>0.861111</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>0.783575</td>
+      <td>0.692918</td>
+      <td>0.861111</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
       <td>21</td>
-      <td>0.718260</td>
-      <td>0.611834</td>
-      <td>0.916667</td>
+      <td>0.755177</td>
+      <td>0.654437</td>
+      <td>0.888889</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>22</td>
-      <td>0.694989</td>
-      <td>0.634425</td>
-      <td>0.902778</td>
-      <td>00:01</td>
+      <td>0.730163</td>
+      <td>0.688373</td>
+      <td>0.861111</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>23</td>
-      <td>0.673135</td>
-      <td>0.572090</td>
-      <td>0.958333</td>
+      <td>0.707563</td>
+      <td>0.680870</td>
+      <td>0.875000</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>24</td>
-      <td>0.653333</td>
-      <td>0.591838</td>
-      <td>0.944444</td>
-      <td>00:01</td>
+      <td>0.686069</td>
+      <td>0.608558</td>
+      <td>0.930556</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>25</td>
-      <td>0.635208</td>
-      <td>0.628711</td>
-      <td>0.916667</td>
+      <td>0.665497</td>
+      <td>0.683771</td>
+      <td>0.861111</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>26</td>
-      <td>0.618674</td>
-      <td>0.552348</td>
-      <td>0.944444</td>
+      <td>0.646514</td>
+      <td>0.683619</td>
+      <td>0.875000</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>27</td>
-      <td>0.603296</td>
-      <td>0.553731</td>
-      <td>0.944444</td>
-      <td>00:01</td>
+      <td>0.629818</td>
+      <td>0.638126</td>
+      <td>0.902778</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>28</td>
-      <td>0.589435</td>
-      <td>0.553788</td>
+      <td>0.613831</td>
+      <td>0.605472</td>
       <td>0.930556</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>29</td>
-      <td>0.576846</td>
-      <td>0.556141</td>
+      <td>0.599471</td>
+      <td>0.590331</td>
       <td>0.930556</td>
       <td>00:01</td>
     </tr>
@@ -957,7 +957,7 @@ learn.fit_one_cycle(epochs, lr_max=lr_max, pct_start=pct_start,  moms=moms, wd=w
 
 ## Plot loss function
 
-```python
+```
 learn.recorder.plot_loss()
 ```
 
@@ -967,7 +967,7 @@ learn.recorder.plot_loss()
 
 ## Show results
 
-```python
+```
 learn.show_results(max_n=9, chs=range(0,12,3))
 ```
 

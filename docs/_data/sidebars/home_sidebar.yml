@@ -10,11 +10,11 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Timeseries - Read data
-      url: /timeseries_data
-    - output: web,pdf
       title: Title
       url: /Colab_timeseries_Tutorial
+    - output: web,pdf
+      title: Timeseries Core
+      url: /timeseries_core
     output: web
     title: timeseries
   output: web
