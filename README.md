@@ -979,6 +979,20 @@ learn.show_results(max_n=9, chs=range(0,12,3))
 ![svg](docs/images/output_64_1.svg)
 
 
+```
+# #hide
+# from nbdev.export import notebook2script
+# notebook2script()
+# # notebook2script(fname='index.ipynb')
+```
+
+```
+# #hide
+# from nbdev.export2html import _notebook2html
+# # notebook2script()
+# _notebook2html(fname='index.ipynb')
+```
+
 # Fin
 
 <img src="https://github.com/ai-fast-track/timeseries/blob/master/images/tree.jpg?raw=1" width="1440" height="840" alt="">
