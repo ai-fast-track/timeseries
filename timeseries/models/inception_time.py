@@ -4,7 +4,7 @@ from fastai2.torch_core import *
 from fastai2.layers import *
 from fastai2.imports import *
 
-# IceptionTime : https://arxiv.org/abs/1909.04939
+# Iception Time paper: https://arxiv.org/abs/1909.04939
 
 class AdaptiveConcatPool1d(nn.Module):
     "Layer that concats `AdaptiveAvgPool1d` and `AdaptiveMaxPool1d`"
