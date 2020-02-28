@@ -1,7 +1,8 @@
 {
   "timeseries": {
     "Overview": "/",
-    "Title": "/Colab_timeseries_Tutorial",
-    "Timeseries Core": "/timeseries_core"
+    "Timeseries Data": "/timeseries_data",
+    "Timeseries Core": "/timeseries_core",
+    "Colab Tutorial": "/Colab_timeseries_Tutorial"
   }
 }
