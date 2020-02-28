@@ -558,8 +558,13 @@ model
 ## Create Learner object
 
 ```
-#Learner
-opt_func = partial(Adam, lr=3e-3, wd=0.01)     
+# opt_func = partial(Adam, lr=3e-3, wd=0.01)
+#Or use Ranger
+def opt_func(p, lr=slice(3e-3)): return Lookahead(RAdam(p, lr=lr, mom=0.95, wd=0.01)) 
+```
+
+```
+#Learner    
 loss_func = LabelSmoothingCrossEntropy() 
 learn = Learner(dls2, model, opt_func=opt_func, loss_func=loss_func, metrics=accuracy)
 
@@ -689,7 +694,7 @@ print(learn.summary())
     Total trainable params: 472,742
     Total non-trainable params: 0
     
-    Optimizer used: functools.partial(<function Adam at 0x7f1020047268>, lr=0.003, wd=0.01)
+    Optimizer used: <function opt_func at 0x7f0f6c4d1158>
     Loss function: LabelSmoothingCrossEntropy()
     
     Callbacks:
@@ -712,12 +717,12 @@ lr_min, lr_steep
 
 
 
-    (0.012022644281387329, 0.00015848931798245758)
+    (0.15848932266235352, 0.0006918309954926372)
 
 
 
 
-![svg](docs/images/output_58_2.svg)
+![svg](docs/images/output_59_2.svg)
 
 
 ## Train
@@ -743,212 +748,212 @@ learn.fit_one_cycle(epochs, lr_max=lr_max, pct_start=pct_start,  moms=moms, wd=w
   <tbody>
     <tr>
       <td>0</td>
-      <td>2.074657</td>
-      <td>1.791457</td>
+      <td>2.086663</td>
+      <td>1.791449</td>
       <td>0.111111</td>
-      <td>00:01</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>2.036341</td>
-      <td>1.794805</td>
+      <td>2.078727</td>
+      <td>1.794685</td>
       <td>0.222222</td>
-      <td>00:01</td>
+      <td>00:03</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>1.967589</td>
-      <td>1.801219</td>
-      <td>0.194444</td>
-      <td>00:01</td>
+      <td>2.059660</td>
+      <td>1.801005</td>
+      <td>0.277778</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>1.907410</td>
-      <td>1.811156</td>
-      <td>0.111111</td>
-      <td>00:01</td>
+      <td>2.032225</td>
+      <td>1.810632</td>
+      <td>0.208333</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>1.830923</td>
-      <td>1.824593</td>
-      <td>0.125000</td>
-      <td>00:01</td>
+      <td>1.984182</td>
+      <td>1.823712</td>
+      <td>0.180556</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>1.737747</td>
-      <td>1.838160</td>
-      <td>0.125000</td>
+      <td>1.909669</td>
+      <td>1.839020</td>
+      <td>0.208333</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>1.637866</td>
-      <td>1.845915</td>
-      <td>0.152778</td>
+      <td>1.833456</td>
+      <td>1.846452</td>
+      <td>0.194444</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>1.537755</td>
-      <td>1.811093</td>
-      <td>0.250000</td>
+      <td>1.732690</td>
+      <td>1.826979</td>
+      <td>0.319444</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>1.440116</td>
-      <td>1.678763</td>
-      <td>0.347222</td>
+      <td>1.620669</td>
+      <td>1.753253</td>
+      <td>0.319444</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>1.347069</td>
-      <td>1.426239</td>
-      <td>0.472222</td>
-      <td>00:01</td>
+      <td>1.518595</td>
+      <td>1.438307</td>
+      <td>0.430556</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>1.261488</td>
-      <td>1.127280</td>
-      <td>0.708333</td>
-      <td>00:01</td>
+      <td>1.420360</td>
+      <td>1.182858</td>
+      <td>0.652778</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>11</td>
-      <td>1.186033</td>
-      <td>0.902298</td>
+      <td>1.326363</td>
+      <td>0.987260</td>
       <td>0.763889</td>
-      <td>00:01</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>1.119337</td>
-      <td>0.776306</td>
-      <td>0.805556</td>
+      <td>1.245747</td>
+      <td>0.782695</td>
+      <td>0.777778</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>1.059979</td>
-      <td>0.721000</td>
-      <td>0.805556</td>
+      <td>1.173810</td>
+      <td>0.728713</td>
+      <td>0.833333</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>14</td>
-      <td>1.007478</td>
-      <td>0.703485</td>
+      <td>1.109214</td>
+      <td>0.704866</td>
       <td>0.819444</td>
-      <td>00:01</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>15</td>
-      <td>0.961167</td>
-      <td>0.691761</td>
-      <td>0.847222</td>
-      <td>00:01</td>
+      <td>1.053367</td>
+      <td>0.710490</td>
+      <td>0.833333</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>16</td>
-      <td>0.920341</td>
-      <td>0.674642</td>
-      <td>0.888889</td>
-      <td>00:01</td>
+      <td>1.001073</td>
+      <td>0.684964</td>
+      <td>0.861111</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>17</td>
-      <td>0.881278</td>
-      <td>0.681701</td>
-      <td>0.847222</td>
-      <td>00:01</td>
+      <td>0.955461</td>
+      <td>0.678061</td>
+      <td>0.902778</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>18</td>
-      <td>0.845703</td>
-      <td>0.679938</td>
+      <td>0.913411</td>
+      <td>0.698473</td>
       <td>0.861111</td>
-      <td>00:01</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>19</td>
-      <td>0.812817</td>
-      <td>0.668800</td>
+      <td>0.873898</td>
+      <td>0.693197</td>
       <td>0.861111</td>
-      <td>00:01</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>20</td>
-      <td>0.783575</td>
-      <td>0.692918</td>
-      <td>0.861111</td>
-      <td>00:01</td>
+      <td>0.837090</td>
+      <td>0.650469</td>
+      <td>0.888889</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>21</td>
-      <td>0.755177</td>
-      <td>0.654437</td>
-      <td>0.888889</td>
-      <td>00:01</td>
+      <td>0.804146</td>
+      <td>0.742458</td>
+      <td>0.875000</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>22</td>
-      <td>0.730163</td>
-      <td>0.688373</td>
+      <td>0.774491</td>
+      <td>0.816232</td>
       <td>0.861111</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>23</td>
-      <td>0.707563</td>
-      <td>0.680870</td>
-      <td>0.875000</td>
-      <td>00:01</td>
-    </tr>
-    <tr>
-      <td>24</td>
-      <td>0.686069</td>
-      <td>0.608558</td>
-      <td>0.930556</td>
+      <td>0.747442</td>
+      <td>0.665499</td>
+      <td>0.861111</td>
       <td>00:02</td>
     </tr>
     <tr>
-      <td>25</td>
-      <td>0.665497</td>
-      <td>0.683771</td>
+      <td>24</td>
+      <td>0.721633</td>
+      <td>0.736514</td>
       <td>0.861111</td>
       <td>00:01</td>
     </tr>
     <tr>
+      <td>25</td>
+      <td>0.697358</td>
+      <td>0.567567</td>
+      <td>0.972222</td>
+      <td>00:02</td>
+    </tr>
+    <tr>
       <td>26</td>
-      <td>0.646514</td>
-      <td>0.683619</td>
-      <td>0.875000</td>
-      <td>00:01</td>
+      <td>0.675201</td>
+      <td>0.569275</td>
+      <td>0.958333</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>27</td>
-      <td>0.629818</td>
-      <td>0.638126</td>
-      <td>0.902778</td>
+      <td>0.654944</td>
+      <td>0.595504</td>
+      <td>0.944444</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>28</td>
-      <td>0.613831</td>
-      <td>0.605472</td>
-      <td>0.930556</td>
+      <td>0.636593</td>
+      <td>0.565226</td>
+      <td>0.958333</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>29</td>
-      <td>0.599471</td>
-      <td>0.590331</td>
-      <td>0.930556</td>
+      <td>0.620018</td>
+      <td>0.560414</td>
+      <td>0.972222</td>
       <td>00:01</td>
     </tr>
   </tbody>
@@ -962,7 +967,7 @@ learn.recorder.plot_loss()
 ```
 
 
-![svg](docs/images/output_62_0.svg)
+![svg](docs/images/output_63_0.svg)
 
 
 ## Show results
@@ -976,7 +981,7 @@ learn.show_results(max_n=9, chs=range(0,12,3))
 
 
 
-![svg](docs/images/output_64_1.svg)
+![svg](docs/images/output_65_1.svg)
 
 
 ```
