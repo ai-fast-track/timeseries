@@ -3,6 +3,7 @@
     "Overview": "/",
     "Timeseries Data": "/timeseries_data",
     "Timeseries Core": "/timeseries_core",
-    "Colab Tutorial": "/Colab_timeseries_Tutorial"
+    "Colab Tutorial": "/Colab_timeseries_Tutorial",
+    "Colab Tutorial - Univariate Time Series Classification": "/univariate_timeseries_Tutorial"
   }
 }

@@ -359,7 +359,8 @@ dls2.show_batch(max_n=9, chs=range(0,12,3))
 getters = [ItemGetter(0), ItemGetter(1)] 
 tsdb = DataBlock(blocks=(TSBlock, CategoryBlock),
                    getters=getters,
-                   splitter=RandomSplitter(seed=seed))
+                   splitter=RandomSplitter(seed=seed)
+                   )
 ```
 
 ```
@@ -694,7 +695,7 @@ print(learn.summary())
     Total trainable params: 472,742
     Total non-trainable params: 0
     
-    Optimizer used: <function opt_func at 0x7f0f6c4d1158>
+    Optimizer used: <function opt_func at 0x7fd5b0287950>
     Loss function: LabelSmoothingCrossEntropy()
     
     Callbacks:
@@ -717,7 +718,7 @@ lr_min, lr_steep
 
 
 
-    (0.15848932266235352, 0.0006918309954926372)
+    (0.025118863582611083, 0.0004786300996784121)
 
 
 
@@ -748,212 +749,212 @@ learn.fit_one_cycle(epochs, lr_max=lr_max, pct_start=pct_start,  moms=moms, wd=w
   <tbody>
     <tr>
       <td>0</td>
-      <td>2.086663</td>
-      <td>1.791449</td>
+      <td>2.127750</td>
+      <td>1.791433</td>
       <td>0.111111</td>
-      <td>00:02</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>2.078727</td>
-      <td>1.794685</td>
+      <td>2.102823</td>
+      <td>1.794651</td>
       <td>0.222222</td>
-      <td>00:03</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>2.059660</td>
-      <td>1.801005</td>
-      <td>0.277778</td>
-      <td>00:02</td>
+      <td>2.076640</td>
+      <td>1.800888</td>
+      <td>0.263889</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>2.032225</td>
-      <td>1.810632</td>
-      <td>0.208333</td>
-      <td>00:02</td>
+      <td>2.050236</td>
+      <td>1.810631</td>
+      <td>0.250000</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>1.984182</td>
-      <td>1.823712</td>
-      <td>0.180556</td>
-      <td>00:02</td>
+      <td>2.019990</td>
+      <td>1.823894</td>
+      <td>0.263889</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>1.909669</td>
-      <td>1.839020</td>
-      <td>0.208333</td>
-      <td>00:02</td>
+      <td>1.965079</td>
+      <td>1.839610</td>
+      <td>0.222222</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>1.833456</td>
-      <td>1.846452</td>
-      <td>0.194444</td>
-      <td>00:02</td>
+      <td>1.910915</td>
+      <td>1.851425</td>
+      <td>0.250000</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>1.732690</td>
-      <td>1.826979</td>
+      <td>1.827525</td>
+      <td>1.841886</td>
       <td>0.319444</td>
-      <td>00:02</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>1.620669</td>
-      <td>1.753253</td>
+      <td>1.731749</td>
+      <td>1.787517</td>
       <td>0.319444</td>
-      <td>00:02</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>1.518595</td>
-      <td>1.438307</td>
-      <td>0.430556</td>
-      <td>00:02</td>
+      <td>1.638641</td>
+      <td>1.543382</td>
+      <td>0.361111</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>1.420360</td>
-      <td>1.182858</td>
-      <td>0.652778</td>
-      <td>00:02</td>
+      <td>1.543057</td>
+      <td>1.327112</td>
+      <td>0.555556</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>11</td>
-      <td>1.326363</td>
-      <td>0.987260</td>
-      <td>0.763889</td>
-      <td>00:02</td>
+      <td>1.444828</td>
+      <td>1.127843</td>
+      <td>0.680556</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>1.245747</td>
-      <td>0.782695</td>
-      <td>0.777778</td>
-      <td>00:02</td>
+      <td>1.358295</td>
+      <td>0.845937</td>
+      <td>0.791667</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>1.173810</td>
-      <td>0.728713</td>
-      <td>0.833333</td>
+      <td>1.278481</td>
+      <td>0.781819</td>
+      <td>0.819444</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>14</td>
-      <td>1.109214</td>
-      <td>0.704866</td>
-      <td>0.819444</td>
-      <td>00:02</td>
+      <td>1.207292</td>
+      <td>0.742110</td>
+      <td>0.833333</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>15</td>
-      <td>1.053367</td>
-      <td>0.710490</td>
+      <td>1.144741</td>
+      <td>0.704746</td>
       <td>0.833333</td>
-      <td>00:02</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>16</td>
-      <td>1.001073</td>
-      <td>0.684964</td>
-      <td>0.861111</td>
-      <td>00:02</td>
+      <td>1.088306</td>
+      <td>0.703602</td>
+      <td>0.819444</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>17</td>
-      <td>0.955461</td>
-      <td>0.678061</td>
-      <td>0.902778</td>
-      <td>00:02</td>
+      <td>1.035804</td>
+      <td>0.680614</td>
+      <td>0.833333</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>18</td>
-      <td>0.913411</td>
-      <td>0.698473</td>
+      <td>0.988838</td>
+      <td>0.689605</td>
       <td>0.861111</td>
-      <td>00:02</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>19</td>
-      <td>0.873898</td>
-      <td>0.693197</td>
-      <td>0.861111</td>
-      <td>00:02</td>
+      <td>0.945978</td>
+      <td>0.676653</td>
+      <td>0.875000</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>20</td>
-      <td>0.837090</td>
-      <td>0.650469</td>
-      <td>0.888889</td>
-      <td>00:02</td>
+      <td>0.907184</td>
+      <td>0.668002</td>
+      <td>0.875000</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>21</td>
-      <td>0.804146</td>
-      <td>0.742458</td>
-      <td>0.875000</td>
-      <td>00:02</td>
+      <td>0.872907</td>
+      <td>0.655626</td>
+      <td>0.861111</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>22</td>
-      <td>0.774491</td>
-      <td>0.816232</td>
-      <td>0.861111</td>
-      <td>00:02</td>
+      <td>0.839653</td>
+      <td>0.642138</td>
+      <td>0.916667</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>23</td>
-      <td>0.747442</td>
-      <td>0.665499</td>
-      <td>0.861111</td>
-      <td>00:02</td>
+      <td>0.808434</td>
+      <td>0.626058</td>
+      <td>0.916667</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>24</td>
-      <td>0.721633</td>
-      <td>0.736514</td>
-      <td>0.861111</td>
+      <td>0.779692</td>
+      <td>0.656796</td>
+      <td>0.888889</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>25</td>
-      <td>0.697358</td>
-      <td>0.567567</td>
-      <td>0.972222</td>
-      <td>00:02</td>
+      <td>0.752830</td>
+      <td>0.638891</td>
+      <td>0.916667</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>26</td>
-      <td>0.675201</td>
-      <td>0.569275</td>
-      <td>0.958333</td>
-      <td>00:02</td>
+      <td>0.728251</td>
+      <td>0.610761</td>
+      <td>0.944444</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>27</td>
-      <td>0.654944</td>
-      <td>0.595504</td>
+      <td>0.705616</td>
+      <td>0.606450</td>
       <td>0.944444</td>
-      <td>00:02</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>28</td>
-      <td>0.636593</td>
-      <td>0.565226</td>
-      <td>0.958333</td>
+      <td>0.684290</td>
+      <td>0.599337</td>
+      <td>0.944444</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>29</td>
-      <td>0.620018</td>
-      <td>0.560414</td>
-      <td>0.972222</td>
+      <td>0.665361</td>
+      <td>0.594228</td>
+      <td>0.958333</td>
       <td>00:01</td>
     </tr>
   </tbody>
@@ -982,6 +983,19 @@ learn.show_results(max_n=9, chs=range(0,12,3))
 
 
 ![svg](docs/images/output_65_1.svg)
+
+
+```
+interp = ClassificationInterpretation.from_learner(learn)
+interp.plot_confusion_matrix()
+```
+
+
+
+
+
+
+![svg](docs/images/output_66_1.svg)
 
 
 ```
