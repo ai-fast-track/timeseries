@@ -122,7 +122,7 @@ class Standardize(Transform):
     "In Timerseries Lingo, Standardize means normalize the timeseries (counter-intuitive)"
     "Scale timeserie x `TensorTS` using the mean and standard deviation"
     order=99
-    def __init__(self, mean=None, std=None, scale_subtype='per_sample', cuda=True):
+    def __init__(self, mean=None, std=None, scale_subtype='per_sample_per_channel', cuda=True):
         self.scale_subtype = scale_subtype
 
         f = to_device if cuda else noop
@@ -159,7 +159,7 @@ class Normalize(Transform):
     "In Timerseries Lingo, Normalize means scale the timeseries (counter-intuitive) between its min and max values"
     "Scale timeserie x `TensorTS` using the min and max values"
     order=99
-    def __init__(self, min=None, max=None, scale_subtype='per_sample', scale_range=(-1, 1), cuda=True):
+    def __init__(self, min=None, max=None, scale_subtype='per_sample_per_channel', scale_range=(0, 1), cuda=True):
         self.scale_subtype = scale_subtype
         self.scale_range = scale_range
         f = to_device if cuda else noop
