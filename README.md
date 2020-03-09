@@ -4,9 +4,6 @@
 
 <a href="https://colab.research.google.com/github/ai-fast-track/timeseries/blob/master/nbs/index.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-## Credit
-> timeseries for fastai v2 was inspired by by Ignacio's Oguiza timeseriesAI (https: //github.com/timeseriesAI/timeseriesAI.git).> Inception Time model definition is a modified version of [Ignacio Oguiza] (https: //github.com/timeseriesAI/timeseriesAI/blob/master/torchtimeseries/models/InceptionTime.py) and [Thomas Capelle] (https://github.com/tcapelle/TimeSeries_fastai/blob/master/inception.py) implementaions
-
 ## Installing **`timeseries`** on local machine as an editable package
 
 1- Only if you have not already installed `fastai v2` 
@@ -222,7 +219,7 @@ ax = show_at(ds, 2, figsize=(1,1))
 
 
 
-![svg](docs/images/output_33_1.svg)
+![svg](docs/images/output_32_1.svg)
 
 
 # Create a `Dataloader` objects
@@ -244,7 +241,7 @@ dls1.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
 
-![svg](docs/images/output_37_0.svg)
+![svg](docs/images/output_36_0.svg)
 
 
 # Using `DataBlock` class
@@ -350,7 +347,7 @@ dls2.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
 
-![svg](docs/images/output_43_0.svg)
+![svg](docs/images/output_42_0.svg)
 
 
 ## 3rd method : using `DataBlock` and passing `items` object to the `DataBlock.dataloaders()`
@@ -372,7 +369,7 @@ dls3.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
 
-![svg](docs/images/output_47_0.svg)
+![svg](docs/images/output_46_0.svg)
 
 
 ## 4th method : using `TSDataLoaders` class and `TSDataLoaders.from_files()`
@@ -386,7 +383,7 @@ dls4.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
 
-![svg](docs/images/output_50_0.svg)
+![svg](docs/images/output_49_0.svg)
 
 
 # Train Model
@@ -723,7 +720,7 @@ lr_min, lr_steep
 
 
 
-![svg](docs/images/output_59_2.svg)
+![svg](docs/images/output_58_2.svg)
 
 
 ## Train
@@ -968,7 +965,7 @@ learn.recorder.plot_loss()
 ```
 
 
-![svg](docs/images/output_63_0.svg)
+![svg](docs/images/output_62_0.svg)
 
 
 ## Show results
@@ -982,7 +979,7 @@ learn.show_results(max_n=9, chs=range(0,12,3))
 
 
 
-![svg](docs/images/output_65_1.svg)
+![svg](docs/images/output_64_1.svg)
 
 
 ```
@@ -995,7 +992,7 @@ interp.plot_confusion_matrix()
 
 
 
-![svg](docs/images/output_66_1.svg)
+![svg](docs/images/output_65_1.svg)
 
 
 ```
@@ -1015,3 +1012,6 @@ interp.plot_confusion_matrix()
 # Fin
 
 <img src="https://github.com/ai-fast-track/timeseries/blob/master/images/tree.jpg?raw=1" width="1440" height="840" alt="">
+
+## Credit
+> timeseries for fastai v2 was inspired by by Ignacio's Oguiza timeseriesAI (https: //github.com/timeseriesAI/timeseriesAI.git).> Inception Time model definition is a modified version of [Ignacio Oguiza] (https: //github.com/timeseriesAI/timeseriesAI/blob/master/torchtimeseries/models/InceptionTime.py) and [Thomas Capelle] (https://github.com/tcapelle/TimeSeries_fastai/blob/master/inception.py) implementaions
