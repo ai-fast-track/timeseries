@@ -19,7 +19,10 @@ entries:
       title: Colab Tutorial
       url: /Colab_timeseries_Tutorial
     - output: web,pdf
-      title: Colab Tutorial - Univariate Time Series Classification
+      title: Example of an end-to-end training using default settings
+      url: /training_using_default_settings
+    - output: web,pdf
+      title: Univariate Time Series Classification Example
       url: /univariate_timeseries_Tutorial
     output: web
     title: timeseries

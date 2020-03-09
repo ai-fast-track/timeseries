@@ -1,6 +1,6 @@
 ---
 
-title: Colab Tutorial - Univariate Time Series Classification
+title: Univariate Time Series Classification Example
 
 keywords: fastai
 sidebar: home_sidebar
@@ -26,7 +26,7 @@ description: "A tutorial that can be run in Google Colab or on a local machine"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://colab.research.google.com/github/ai-fast-track/timeseries/blob/master/nbs/Colab_timeseries_Tutorial.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p><a href="https://colab.research.google.com/github/ai-fast-track/timeseries/blob/master/nbs/univariate_timeseries_Tutorial.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 
 </div>
 </div>
@@ -98,6 +98,18 @@ description: "A tutorial that can be run in Google Colab or on a local machine"
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Yoga-Dataset">Yoga Dataset<a class="anchor-link" href="#Yoga-Dataset">&#182;</a></h1><blockquote><p>The dataset was obtained by capturing two actors transiting between
+yoga poses in front of a green screen. The problem is to
+discriminate between one actor (male) and another (female). Each
+image was converted to a one dimensional series by finding the
+outline and measuring the distance of the outline to the centre.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -117,8 +129,7 @@ description: "A tutorial that can be run in Google Colab or on a local machine"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.timeseriesclassification.com/Downloads/Yoga.zip&#39;</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">unzip_data</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="c1"># path = unzip_data(URLs_TS.NATOPS)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">unzip_data</span><span class="p">(</span><span class="n">URLs_TS</span><span class="o">.</span><span class="n">UNI_YOGA</span><span class="p">)</span>
 <span class="n">path</span>
 </pre></div>
 
@@ -128,15 +139,6 @@ description: "A tutorial that can be run in Google Colab or on a local machine"
 
 <div class="output_wrapper">
 <div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea ">
-
-</div>
-
-</div>
 
 <div class="output_area">
 
@@ -12655,7 +12657,8 @@ z
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include image.html height="840" alt="" max-width="1440" file="<a href="https://github.com/ai-fast-track/timeseries/blob/master/images/nature-red-forest-leaves.jpg?raw=1">https://github.com/ai-fast-track/timeseries/blob/master/images/nature-red-forest-leaves.jpg?raw=1</a>" %}</p>
+<p>{% include image.html height="840" alt="" max-width="1440" file="<a href="https://github.com/ai-fast-track/timeseries/blob/master/images/yoga.jpg?raw=1">https://github.com/ai-fast-track/timeseries/blob/master/images/yoga.jpg?raw=1</a>" %}</p>
+<p><a href="https://unsplash.com/@clearsky?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge">Photo Credit: Farsai Chaikulngamdee</a></p>
 
 </div>
 </div>

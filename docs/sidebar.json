@@ -4,6 +4,7 @@
     "Timeseries Data": "/timeseries_data",
     "Timeseries Core": "/timeseries_core",
     "Colab Tutorial": "/Colab_timeseries_Tutorial",
-    "Colab Tutorial - Univariate Time Series Classification": "/univariate_timeseries_Tutorial"
+    "Example of an end-to-end training using default settings": "/training_using_default_settings",
+    "Univariate Time Series Classification Example": "/univariate_timeseries_Tutorial"
   }
 }
