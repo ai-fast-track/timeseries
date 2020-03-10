@@ -5,13 +5,13 @@
 <a href="https://colab.research.google.com/github/ai-fast-track/timeseries/blob/master/nbs/index.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ## Installation
-> Type: There are may ways to install `timeseries` package. Since `timeseries` is built using `fastai2`, there are also different ways to install fastai2. We will show to differents ways to install them and explain the motivation behin each one of them.
+> Note : There are may ways to install `timeseries` package. Since `timeseries` is built using `fastai2`, there are also different ways to install fastai2. We will show to differents ways to install them and explain the motivation behin each one of them.
 
 ### Method 1 : Editable Version
 #### 1A - Installing fastai2
 > Important : Only if you have not already installed `fastai2`,install [fastai2](https://dev.fast.ai/#Installing) by following the steps described there.
 
-### 1B - Installing `timeseries` on a local machine as an `editable` package
+#### 1B - Installing `timeseries` on a local machine
 > Note : Installing an editable version of a package means that you will install a package from its corresponding github repository on your local machine. By doing so, you can pull the latest version whenever a new version is pushed.
 To install `timeseries` editable package, follow the instructions here below:
 
@@ -24,13 +24,13 @@ pip install -e .
 ### Method 2 : Non Editable version
 > Note : Everytime you run the `!pip install git+https:// ...`, you are installing the package latest version stored on github. > Important : As both fastai2 and `timeseries` are still under development, this is an easy way to use them in Google Colab or any other online platform. You can also use it on your local machine.
 
-#### 2A - Installing fastai2 `from its github repository (master)
+#### 2A - Installing `fastai2` from its github repository
 
 ```
 !pip install git+https://github.com/fastai/fastai2.git
 ```
 
-#### 2B - Installing `timeseries` package from its github repository (master)
+#### 2B - Installing `timeseries` from its github repository
 
 ```
 !pip install git+https://github.com/ai-fast-track/timeseries.git
