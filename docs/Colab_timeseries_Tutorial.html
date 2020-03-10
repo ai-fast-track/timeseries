@@ -31,6 +31,12 @@ description: "A tutorial that can be run in Google Colab or on a local machine"
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Install-fastai2-and-timeseries">Install fastai2 and timeseries<a class="anchor-link" href="#Install-fastai2-and-timeseries">&#182;</a></h2>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -97,6 +103,12 @@ description: "A tutorial that can be run in Google Colab or on a local machine"
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Downloading-and-unzipping-a-time-series-dataset">Downloading and unzipping a time series dataset<a class="anchor-link" href="#Downloading-and-unzipping-a-time-series-dataset">&#182;</a></h2>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -222,6 +234,12 @@ description: "A tutorial that can be run in Google Colab or on a local machine"
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Creating-Dataloaders-object">Creating Dataloaders object<a class="anchor-link" href="#Creating-Dataloaders-object">&#182;</a></h2>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -4786,7 +4804,7 @@ L 598.434375 474.894687
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Train-Model">Train Model<a class="anchor-link" href="#Train-Model">&#182;</a></h1>
+<h2 id="Training-Model">Training Model<a class="anchor-link" href="#Training-Model">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -4795,11 +4813,11 @@ L 598.434375 474.894687
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # Number of channels (i.e. dimensions in ARFF and TS files jargon)</span>
-<span class="c1"># c_in = get_n_channels(dls.train) # data.n_channels</span>
-<span class="c1"># # Number of classes</span>
-<span class="c1"># c_out= dls.c </span>
-<span class="c1"># c_in,c_out</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Number of channels (i.e. dimensions in ARFF and TS files jargon)</span>
+<span class="n">c_in</span> <span class="o">=</span> <span class="n">get_n_channels</span><span class="p">(</span><span class="n">dls</span><span class="o">.</span><span class="n">train</span><span class="p">)</span> <span class="c1"># data.n_channels</span>
+<span class="c1"># Number of classes</span>
+<span class="n">c_out</span><span class="o">=</span> <span class="n">dls</span><span class="o">.</span><span class="n">c</span> 
+<span class="n">c_in</span><span class="p">,</span><span class="n">c_out</span>
 </pre></div>
 
     </div>
@@ -4812,8 +4830,8 @@ L 598.434375 474.894687
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># model = inception_time(c_in, c_out).to(device=default_device())</span>
-<span class="c1"># model</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">inception_time</span><span class="p">(</span><span class="n">c_in</span><span class="p">,</span> <span class="n">c_out</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">default_device</span><span class="p">())</span>
+<span class="n">model</span>
 </pre></div>
 
     </div>
@@ -4826,10 +4844,12 @@ L 598.434375 474.894687
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Learner</span>
-<span class="c1"># loss_func = LabelSmoothingCrossEntropy() </span>
-<span class="c1"># learn = Learner(dls, model, opt_func=Ranger, loss_func=loss_func, metrics=accuracy)</span>
-<span class="n">learn</span> <span class="o">=</span> <span class="n">ts_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Learner</span>
+<span class="n">loss_func</span> <span class="o">=</span> <span class="n">LabelSmoothingCrossEntropy</span><span class="p">()</span> 
+<span class="n">learn</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">opt_func</span><span class="o">=</span><span class="n">Ranger</span><span class="p">,</span> <span class="n">loss_func</span><span class="o">=</span><span class="n">loss_func</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">accuracy</span><span class="p">)</span>
+
+<span class="c1"># Or just using default settings thanks to ts_learner()</span>
+<span class="c1"># learn = ts_learner(dls)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">learn</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
@@ -6682,6 +6702,12 @@ L 378.58125 7.2
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Graphs">Graphs<a class="anchor-link" href="#Graphs">&#182;</a></h2>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13168,7 +13194,7 @@ z
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include image.html height="840" alt="" max-width="1440" file="<a href="https://github.com/ai-fast-track/timeseries/blob/master/images/nature-red-forest-leaves.jpg?raw=1">https://github.com/ai-fast-track/timeseries/blob/master/images/nature-red-forest-leaves.jpg?raw=1</a>" %}</p>
+<p><img src="/timeseries/images/tree.jpg" alt=""></p>
 
 </div>
 </div>
