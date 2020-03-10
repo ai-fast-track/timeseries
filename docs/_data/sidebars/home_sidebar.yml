@@ -22,7 +22,7 @@ entries:
       title: Training using default settings
       url: /training_using_default_settings
     - output: web,pdf
-      title: Train a univariate time series
+      title: Train univariate time series
       url: /univariate_timeseries_Tutorial
     output: web
     title: timeseries

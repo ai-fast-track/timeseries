@@ -5,6 +5,6 @@
     "Timeseries Core": "/timeseries_core",
     "Colab Tutorial": "/Colab_timeseries_Tutorial",
     "Training using default settings": "/training_using_default_settings",
-    "Train a univariate time series": "/univariate_timeseries_Tutorial"
+    "Train univariate time series": "/univariate_timeseries_Tutorial"
   }
 }
