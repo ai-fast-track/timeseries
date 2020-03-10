@@ -99,7 +99,7 @@ The six classes are separate actions, with the following meaning:
 5: Fold wings 
 6: Lock wings
 
-## Download data using `download_unzip_data_UCR(dsname=dsname)` method
+### Downloading and unzipping a time series dataset
 
 ```
 dsname =  'NATOPS' #'NATOPS', 'LSST', 'Wine', 'Epilepsy', 'HandMovementDirection'
