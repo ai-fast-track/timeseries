@@ -1,12 +1,12 @@
 ---
 
-title: `timeseries` package for fastai v2
+title: `timeseries` package for fastai2
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "**`timeseries`** is a Timeseries Classification and Regression package for fastai v2."
-description: "**`timeseries`** is a Timeseries Classification and Regression package for fastai v2."
+summary: "**`timeseries`** is a Timeseries Classification and Regression package for fastai2."
+description: "**`timeseries`** is a Timeseries Classification and Regression package for fastai2."
 ---
 <!--
 
@@ -33,9 +33,19 @@ description: "**`timeseries`** is a Timeseries Classification and Regression pac
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Installing-timeseries-on-local-machine-as-an-editable-package">Installing <strong><code>timeseries</code></strong> on local machine as an editable package<a class="anchor-link" href="#Installing-timeseries-on-local-machine-as-an-editable-package">&#182;</a></h2><p>1- Only if you have not already installed <code>fastai v2</code> 
-Install <a href="https://dev.fast.ai/#Installing">fastai2</a> by following the steps described there.</p>
-<p>2- Install timeseries package by following the instructions here below:</p>
+<h2 id="Installation">Installation<a class="anchor-link" href="#Installation">&#182;</a></h2><blockquote><p>Type: There are may ways to install <code>timeseries</code> package. Since <code>timeseries</code> is built using <code>fastai2</code>, there are also different ways to install fastai2. We will show to differents ways to install them and explain the motivation behin each one of them.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Method-1-:-Editable-Version">Method 1 : Editable Version<a class="anchor-link" href="#Method-1-:-Editable-Version">&#182;</a></h3><h4 id="1A---Installing-fastai2">1A - Installing fastai2<a class="anchor-link" href="#1A---Installing-fastai2">&#182;</a></h4><blockquote><p>Important : Only if you have not already installed <code>fastai2</code>,install <a href="https://dev.fast.ai/#Installing">fastai2</a> by following the steps described there.</p>
+</blockquote>
+<h3 id="1B---Installing-timeseries-on-a-local-machine-as-an-editable-package">1B - Installing <code>timeseries</code> on a local machine as an <code>editable</code> package<a class="anchor-link" href="#1B---Installing-timeseries-on-a-local-machine-as-an-editable-package">&#182;</a></h3><blockquote><p>Note : Installing an editable version of a package means that you will install a package from its corresponding github repository on your local machine. By doing so, you can pull the latest version whenever a new version is pushed.
+To install <code>timeseries</code> editable package, follow the instructions here below:</p>
+</blockquote>
 
 <pre><code>git clone https://github.com/ai-fast-track/timeseries.git
 cd timeseries
@@ -46,13 +56,15 @@ pip install -e .</code></pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="pip-installing-timeseries-from-repo-either-locally-or-in-Google-Colab---Start-Here">pip installing <strong><code>timeseries</code></strong> from repo either locally or in Google Colab - Start Here<a class="anchor-link" href="#pip-installing-timeseries-from-repo-either-locally-or-in-Google-Colab---Start-Here">&#182;</a></h1>
+<h3 id="Method-2-:-Non-Editable-version">Method 2 : Non Editable version<a class="anchor-link" href="#Method-2-:-Non-Editable-version">&#182;</a></h3><blockquote><p>Note : Everytime you run the <code>!pip install git+https:// ...</code>, you are installing the package latest version stored on github. &gt; Important : As both fastai2 and <code>timeseries</code> are still under development, this is an easy way to use them in Google Colab or any other online platform. You can also use it on your local machine.</p>
+</blockquote>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Installing-fastai-v2">Installing fastai v2<a class="anchor-link" href="#Installing-fastai-v2">&#182;</a></h2>
+<h4 id="2A---Installing-fastai2-`from-its-github-repository-(master)">2A - Installing fastai2 `from its github repository (master)<a class="anchor-link" href="#2A---Installing-fastai2-`from-its-github-repository-(master)">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -71,7 +83,7 @@ pip install -e .</code></pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Installing-timeseries-package-from-github">Installing <code>timeseries</code> package from github<a class="anchor-link" href="#Installing-timeseries-package-from-github">&#182;</a></h2>
+<h4 id="2B---Installing-timeseries-package-from-its-github-repository-(master)">2B - Installing <code>timeseries</code> package from its github repository (master)<a class="anchor-link" href="#2B---Installing-timeseries-package-from-its-github-repository-(master)">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -90,13 +102,7 @@ pip install -e .</code></pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="pip-Installing---End-Here"><em>pip Installing - End Here</em><a class="anchor-link" href="#pip-Installing---End-Here">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Usage"><code>Usage</code><a class="anchor-link" href="#Usage">&#182;</a></h1>
+<h2 id="Usage"><code>Usage</code><a class="anchor-link" href="#Usage">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -144,7 +150,7 @@ pip install -e .</code></pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="/timeseries/images/docs.png" alt=""> <a href="https://ai-fast-track.github.io/timeseries/">timeseries package documentation</a></p>
-<h1 id="Tutorial-on-timeseries-package-for-fastai-v2">Tutorial on timeseries package for fastai v2<a class="anchor-link" href="#Tutorial-on-timeseries-package-for-fastai-v2">&#182;</a></h1>
+<h2 id="Tutorial-on-timeseries-package-for-fastai2">Tutorial on timeseries package for fastai2<a class="anchor-link" href="#Tutorial-on-timeseries-package-for-fastai2">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -233,26 +239,8 @@ pip install -e .</code></pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Classes-(6)">Classes (6)<a class="anchor-link" href="#Classes-(6)">&#182;</a></h3><p>The six classes are separate actions, with the following meaning:</p>
-<table>
-<thead><tr>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">1: I have command</td>
-<td style="text-align:left">2: All clear</td>
-<td style="text-align:left">3: Not clear</td>
-<td style="text-align:left">4: Spread wings</td>
-<td style="text-align:left">5: Fold wings</td>
-<td style="text-align:left">6: Lock wings</td>
-</tr>
-</tbody>
-</table>
+<p>|:----------------- |:-------------- |:-------------- |:-------------- |:-------------- |:-------------- |
+| 1: I have command | 2: All clear   | 3: Not clear  | 4: Spread wings  | 5: Fold wings |6: Lock wings   |</p>
 
 </div>
 </div>
@@ -29582,7 +29570,7 @@ z
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Credit">Credit<a class="anchor-link" href="#Credit">&#182;</a></h2><blockquote><p>timeseries for fastai v2 was inspired by Ignacio's Oguiza timeseriesAI (https: //github.com/timeseriesAI/timeseriesAI.git).&gt; Inception Time model definition is a modified version of [Ignacio Oguiza] (https: //github.com/timeseriesAI/timeseriesAI/blob/master/torchtimeseries/models/InceptionTime.py) and [Thomas Capelle] (<a href="https://github.com/tcapelle/TimeSeries_fastai/blob/master/inception.py">https://github.com/tcapelle/TimeSeries_fastai/blob/master/inception.py</a>) implementaions</p>
+<h2 id="Credit">Credit<a class="anchor-link" href="#Credit">&#182;</a></h2><blockquote><p>timeseries for fastai2 was inspired by Ignacio's Oguiza timeseriesAI (https: //github.com/timeseriesAI/timeseriesAI.git).&gt; Inception Time model definition is a modified version of [Ignacio Oguiza] (https: //github.com/timeseriesAI/timeseriesAI/blob/master/torchtimeseries/models/InceptionTime.py) and [Thomas Capelle] (<a href="https://github.com/tcapelle/TimeSeries_fastai/blob/master/inception.py">https://github.com/tcapelle/TimeSeries_fastai/blob/master/inception.py</a>) implementaions</p>
 </blockquote>
 
 </div>
