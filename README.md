@@ -55,7 +55,7 @@ from timeseries.all import *
 
 <img src="https://github.com/ai-fast-track/timeseries/blob/master/images/NATOPS.jpg?raw=1">
 
-### Right Arm vs Left Arm (3: 'Not clear' Command (see picture here above))
+**Right Arm vs Left Arm time series for the 'Not clear' Command ((#3) (see picture here above)**
 <br>
 <img src="https://github.com/ai-fast-track/timeseries/blob/master/images/ts-right-arm.png?raw=1"><img src="https://github.com/ai-fast-track/timeseries/blob/master/images/ts-left-arm.png?raw=1">
 
