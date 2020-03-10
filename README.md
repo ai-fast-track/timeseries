@@ -1011,4 +1011,4 @@ interp.plot_confusion_matrix()
 ![](nbs/images/tree.jpg)
 
 ## Credit
-> timeseries for fastai v2 was inspired by by Ignacio's Oguiza timeseriesAI (https: //github.com/timeseriesAI/timeseriesAI.git).> Inception Time model definition is a modified version of [Ignacio Oguiza] (https: //github.com/timeseriesAI/timeseriesAI/blob/master/torchtimeseries/models/InceptionTime.py) and [Thomas Capelle] (https://github.com/tcapelle/TimeSeries_fastai/blob/master/inception.py) implementaions
+> timeseries for fastai v2 was inspired by Ignacio's Oguiza timeseriesAI (https: //github.com/timeseriesAI/timeseriesAI.git).> Inception Time model definition is a modified version of [Ignacio Oguiza] (https: //github.com/timeseriesAI/timeseriesAI/blob/master/torchtimeseries/models/InceptionTime.py) and [Thomas Capelle] (https://github.com/tcapelle/TimeSeries_fastai/blob/master/inception.py) implementaions
