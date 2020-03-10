@@ -222,7 +222,7 @@ ax = show_at(ds, 2, figsize=(1,1))
 ![svg](docs/images/output_32_1.svg)
 
 
-## Creating a `Dataloader` objects
+## Creating a `Dataloaders` object
 
 ### 1st method : using `Datasets` object
 
