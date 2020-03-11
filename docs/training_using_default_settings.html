@@ -165,7 +165,7 @@ description: "an example showing how we can train an end-to-end time series data
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># You can choose any multivariate or univariate dataset listed the `data.py` file</span>
-
+<span class="n">path</span> <span class="o">=</span> <span class="n">unzip_data</span><span class="p">(</span><span class="n">URLs_TS</span><span class="o">.</span><span class="n">NATOPS</span><span class="p">)</span>
 <span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;NATOPS_TRAIN.arff&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">/</span><span class="s1">&#39;NATOPS_TEST.arff&#39;</span><span class="p">]</span>
 <span class="n">dls</span> <span class="o">=</span> <span class="n">TSDataLoaders</span><span class="o">.</span><span class="n">from_files</span><span class="p">(</span><span class="n">bs</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span><span class="n">fnames</span><span class="o">=</span><span class="n">fnames</span><span class="p">,</span> <span class="n">batch_tfms</span><span class="o">=</span><span class="p">[</span><span class="n">Normalize</span><span class="p">()],</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># num_workers=0 is for Windows platform</span>
 <span class="n">learn</span> <span class="o">=</span> <span class="n">ts_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">)</span>
