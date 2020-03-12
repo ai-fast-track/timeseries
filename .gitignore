@@ -145,3 +145,5 @@ checklink/cookies.txt
 archives
 
 models/*.pth
+
+blog/
