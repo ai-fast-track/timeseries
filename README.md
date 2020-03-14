@@ -5,14 +5,14 @@
 <a href="https://colab.research.google.com/github/ai-fast-track/timeseries/blob/master/nbs/index.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ## Installation
-{% include note.html content='There are may ways to install `timeseries` package. Since `timeseries` is built using `fastai2`, there are also different ways to install fastai2. We will show to differents ways to install them and explain the motivation behin each one of them.' %}
+> There are may ways to install `timeseries` package. Since `timeseries` is built using `fastai2`, there are also different ways to install fastai2. We will show to differents ways to install them and explain the motivation behin each one of them.
 
 ### Method 1 : Editable Version
 #### 1A - Installing fastai2
-{% include important.html content='Only if you have not already installed `fastai2`,' %}install [fastai2](https://dev.fast.ai/#Installing) by following the steps described there.
+> Important : Only if you have not already installed `fastai2`,install [fastai2](https://dev.fast.ai/#Installing) by following the steps described there.
 
 #### 1B - Installing `timeseries` on a local machine
-{% include note.html content='Installing an editable version of a package means that you will install a package from its corresponding github repository on your local machine. By doing so, you can pull the latest version whenever a new version is pushed.' %}
+> Note : Installing an editable version of a package means that you will install a package from its corresponding github repository on your local machine. By doing so, you can pull the latest version whenever a new version is pushed.
 To install `timeseries` editable package, follow the instructions here below:
 
 ```
@@ -27,12 +27,19 @@ pip install -e .
 #### 2A - Installing `fastai2` from its github repository
 
 ```
+# Run this cell to install the latest version of fastai shared on github
 !pip install git+https://github.com/fastai/fastai2.git
+```
+
+```
+# Run this cell to install the latest version of fastcore shared on github
+!pip install git+https://github.com/fastai/fastcore.git
 ```
 
 #### 2B - Installing `timeseries` from its github repository
 
 ```
+# Run this cell to install the latest version of timeseries shared on github
 !pip install git+https://github.com/ai-fast-track/timeseries.git
 ```
 
@@ -207,7 +214,7 @@ ax = show_at(ds, 2, figsize=(1,1))
 
 
 
-![svg](docs/images/output_34_1.svg)
+![svg](docs/images/output_35_1.svg)
 
 
 ## Creating a `Dataloaders` object
@@ -229,7 +236,7 @@ dls1.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
 
-![svg](docs/images/output_38_0.svg)
+![svg](docs/images/output_39_0.svg)
 
 
 # Using `DataBlock` class
@@ -335,7 +342,7 @@ dls2.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
 
-![svg](docs/images/output_44_0.svg)
+![svg](docs/images/output_45_0.svg)
 
 
 ### 3rd method : using `DataBlock` and passing `items` object to the `DataBlock.dataloaders()`
@@ -357,7 +364,7 @@ dls3.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
 
-![svg](docs/images/output_48_0.svg)
+![svg](docs/images/output_49_0.svg)
 
 
 ### 4th method : using `TSDataLoaders` class and `TSDataLoaders.from_files()`
@@ -371,7 +378,7 @@ dls4.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
 
-![svg](docs/images/output_51_0.svg)
+![svg](docs/images/output_52_0.svg)
 
 
 ## Training a Model
@@ -680,7 +687,7 @@ print(learn.summary())
     Total trainable params: 472,742
     Total non-trainable params: 0
     
-    Optimizer used: <function opt_func at 0x7fd5b0287950>
+    Optimizer used: <function opt_func at 0x7ff7286aa598>
     Loss function: LabelSmoothingCrossEntropy()
     
     Callbacks:
@@ -703,12 +710,12 @@ lr_min, lr_steep
 
 
 
-    (0.025118863582611083, 0.0004786300996784121)
+    (0.03630780577659607, 0.0003981071640737355)
 
 
 
 
-![svg](docs/images/output_60_2.svg)
+![svg](docs/images/output_61_2.svg)
 
 
 ### Train
@@ -734,213 +741,213 @@ learn.fit_one_cycle(epochs, lr_max=lr_max, pct_start=pct_start,  moms=moms, wd=w
   <tbody>
     <tr>
       <td>0</td>
-      <td>2.127750</td>
-      <td>1.791433</td>
-      <td>0.111111</td>
-      <td>00:01</td>
+      <td>2.834904</td>
+      <td>1.795923</td>
+      <td>0.152778</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>2.102823</td>
-      <td>1.794651</td>
-      <td>0.222222</td>
+      <td>2.842472</td>
+      <td>1.798778</td>
+      <td>0.152778</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>2.076640</td>
-      <td>1.800888</td>
-      <td>0.263889</td>
-      <td>00:01</td>
+      <td>2.811872</td>
+      <td>1.802382</td>
+      <td>0.152778</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>2.050236</td>
-      <td>1.810631</td>
-      <td>0.250000</td>
-      <td>00:01</td>
+      <td>2.776238</td>
+      <td>1.806626</td>
+      <td>0.152778</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>2.019990</td>
-      <td>1.823894</td>
-      <td>0.263889</td>
+      <td>2.728971</td>
+      <td>1.811036</td>
+      <td>0.152778</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>1.965079</td>
-      <td>1.839610</td>
-      <td>0.222222</td>
-      <td>00:01</td>
+      <td>2.668968</td>
+      <td>1.815441</td>
+      <td>0.194444</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>1.910915</td>
-      <td>1.851425</td>
-      <td>0.250000</td>
-      <td>00:01</td>
+      <td>2.605878</td>
+      <td>1.815416</td>
+      <td>0.222222</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>1.827525</td>
-      <td>1.841886</td>
-      <td>0.319444</td>
-      <td>00:01</td>
+      <td>2.509938</td>
+      <td>1.808677</td>
+      <td>0.236111</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>1.731749</td>
-      <td>1.787517</td>
-      <td>0.319444</td>
-      <td>00:01</td>
+      <td>2.395904</td>
+      <td>1.782158</td>
+      <td>0.250000</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>1.638641</td>
-      <td>1.543382</td>
+      <td>2.286265</td>
+      <td>1.583869</td>
       <td>0.361111</td>
-      <td>00:01</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>1.543057</td>
-      <td>1.327112</td>
-      <td>0.555556</td>
-      <td>00:01</td>
+      <td>2.162855</td>
+      <td>1.421896</td>
+      <td>0.458333</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>11</td>
-      <td>1.444828</td>
-      <td>1.127843</td>
-      <td>0.680556</td>
-      <td>00:01</td>
+      <td>2.033385</td>
+      <td>1.281669</td>
+      <td>0.486111</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>1.358295</td>
-      <td>0.845937</td>
-      <td>0.791667</td>
-      <td>00:01</td>
+      <td>1.913663</td>
+      <td>0.952594</td>
+      <td>0.777778</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>1.278481</td>
-      <td>0.781819</td>
-      <td>0.819444</td>
-      <td>00:01</td>
+      <td>1.793140</td>
+      <td>0.873441</td>
+      <td>0.791667</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>14</td>
-      <td>1.207292</td>
-      <td>0.742110</td>
-      <td>0.833333</td>
-      <td>00:01</td>
+      <td>1.680594</td>
+      <td>0.827057</td>
+      <td>0.819444</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>15</td>
-      <td>1.144741</td>
-      <td>0.704746</td>
+      <td>1.580222</td>
+      <td>0.728311</td>
       <td>0.833333</td>
-      <td>00:01</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>16</td>
-      <td>1.088306</td>
-      <td>0.703602</td>
-      <td>0.819444</td>
-      <td>00:01</td>
+      <td>1.486642</td>
+      <td>0.712666</td>
+      <td>0.847222</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>17</td>
-      <td>1.035804</td>
-      <td>0.680614</td>
+      <td>1.400012</td>
+      <td>0.711462</td>
       <td>0.833333</td>
-      <td>00:01</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>18</td>
-      <td>0.988838</td>
-      <td>0.689605</td>
-      <td>0.861111</td>
+      <td>1.324036</td>
+      <td>0.714839</td>
+      <td>0.819444</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>19</td>
-      <td>0.945978</td>
-      <td>0.676653</td>
-      <td>0.875000</td>
+      <td>1.254413</td>
+      <td>0.697279</td>
+      <td>0.847222</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>20</td>
-      <td>0.907184</td>
-      <td>0.668002</td>
+      <td>1.189490</td>
+      <td>0.691324</td>
+      <td>0.861111</td>
+      <td>00:02</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>1.130941</td>
+      <td>0.692367</td>
+      <td>0.847222</td>
+      <td>00:02</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>1.077336</td>
+      <td>0.691770</td>
+      <td>0.847222</td>
+      <td>00:02</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>1.027858</td>
+      <td>0.683175</td>
+      <td>0.875000</td>
+      <td>00:02</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>0.982550</td>
+      <td>0.675254</td>
       <td>0.875000</td>
       <td>00:01</td>
     </tr>
     <tr>
-      <td>21</td>
-      <td>0.872907</td>
-      <td>0.655626</td>
+      <td>25</td>
+      <td>0.940221</td>
+      <td>0.667658</td>
+      <td>0.888889</td>
+      <td>00:02</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>0.902526</td>
+      <td>0.663029</td>
+      <td>0.875000</td>
+      <td>00:02</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>0.867685</td>
+      <td>0.666622</td>
+      <td>0.861111</td>
+      <td>00:02</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>0.836503</td>
+      <td>0.660849</td>
       <td>0.861111</td>
       <td>00:01</td>
     </tr>
     <tr>
-      <td>22</td>
-      <td>0.839653</td>
-      <td>0.642138</td>
-      <td>0.916667</td>
-      <td>00:01</td>
-    </tr>
-    <tr>
-      <td>23</td>
-      <td>0.808434</td>
-      <td>0.626058</td>
-      <td>0.916667</td>
-      <td>00:01</td>
-    </tr>
-    <tr>
-      <td>24</td>
-      <td>0.779692</td>
-      <td>0.656796</td>
-      <td>0.888889</td>
-      <td>00:01</td>
-    </tr>
-    <tr>
-      <td>25</td>
-      <td>0.752830</td>
-      <td>0.638891</td>
-      <td>0.916667</td>
-      <td>00:01</td>
-    </tr>
-    <tr>
-      <td>26</td>
-      <td>0.728251</td>
-      <td>0.610761</td>
-      <td>0.944444</td>
-      <td>00:01</td>
-    </tr>
-    <tr>
-      <td>27</td>
-      <td>0.705616</td>
-      <td>0.606450</td>
-      <td>0.944444</td>
-      <td>00:01</td>
-    </tr>
-    <tr>
-      <td>28</td>
-      <td>0.684290</td>
-      <td>0.599337</td>
-      <td>0.944444</td>
-      <td>00:01</td>
-    </tr>
-    <tr>
       <td>29</td>
-      <td>0.665361</td>
-      <td>0.594228</td>
-      <td>0.958333</td>
-      <td>00:01</td>
+      <td>0.808390</td>
+      <td>0.658917</td>
+      <td>0.861111</td>
+      <td>00:02</td>
     </tr>
   </tbody>
 </table>
@@ -953,7 +960,7 @@ learn.recorder.plot_loss()
 ```
 
 
-![svg](docs/images/output_64_0.svg)
+![svg](docs/images/output_65_0.svg)
 
 
 ### Showing the results
@@ -967,7 +974,7 @@ learn.show_results(max_n=9, chs=range(0,12,3))
 
 
 
-![svg](docs/images/output_66_1.svg)
+![svg](docs/images/output_67_1.svg)
 
 
 ### Showing the confusion matrix
@@ -982,17 +989,8 @@ interp.plot_confusion_matrix()
 
 
 
-![svg](docs/images/output_68_1.svg)
+![svg](docs/images/output_69_1.svg)
 
-
-```
-# #hide
-# from nbdev.export import notebook2script
-# notebook2script()
-# # notebook2script(fname='index.ipynb')
-```
-
-# Fin
 
 ![](nbs/images/tree.jpg)
 

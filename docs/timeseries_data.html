@@ -79,7 +79,7 @@ description: "Basic functions to read timeseries files like `.arff` and `.ts` fi
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="TSData" class="doc_header"><code>class</code> <code>TSData</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L15" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>TSData</code>(<strong><code>fnames</code></strong>, <strong><code>has_targets</code></strong>=<em><code>True</code></em>, <strong><code>fill_missing</code></strong>=<em><code>'NaN'</code></em>)</p>
+<h2 id="TSData" class="doc_header"><code>class</code> <code>TSData</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L12" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>TSData</code>(<strong><code>fnames</code></strong>, <strong><code>has_targets</code></strong>=<em><code>True</code></em>, <strong><code>fill_missing</code></strong>=<em><code>'NaN'</code></em>)</p>
 </blockquote>
 <p>Class that loads .arff (soon .ts) files and returns a tuple (data.x , self.y)</p>
 
@@ -100,7 +100,7 @@ description: "Basic functions to read timeseries files like `.arff` and `.ts` fi
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="TSData.from_arff" class="doc_header"><code>TSData.from_arff</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L108" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>TSData.from_arff</code>(<strong><code>fnames</code></strong>, <strong><code>has_targets</code></strong>=<em><code>True</code></em>, <strong><code>fill_missing</code></strong>=<em><code>'NaN'</code></em>)</p>
+<h4 id="TSData.from_arff" class="doc_header"><code>TSData.from_arff</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L105" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>TSData.from_arff</code>(<strong><code>fnames</code></strong>, <strong><code>has_targets</code></strong>=<em><code>True</code></em>, <strong><code>fill_missing</code></strong>=<em><code>'NaN'</code></em>)</p>
 </blockquote>
 <p>read one or serveral arff files and concatenate them, and returns a TSData object</p>
 
@@ -121,7 +121,7 @@ description: "Basic functions to read timeseries files like `.arff` and `.ts` fi
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="TSData.get_items" class="doc_header"><code>TSData.get_items</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L36" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>TSData.get_items</code>()</p>
+<h4 id="TSData.get_items" class="doc_header"><code>TSData.get_items</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L33" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>TSData.get_items</code>()</p>
 </blockquote>
 <p>return list of tuples. Each tuple corresponds to a timeserie (nump.ndarray) and a label (string)</p>
 
@@ -164,7 +164,7 @@ description: "Basic functions to read timeseries files like `.arff` and `.ts` fi
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_ts_items" class="doc_header"><code>get_ts_items</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L148" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_ts_items</code>(<strong><code>fnames</code></strong>)</p>
+<h4 id="get_ts_items" class="doc_header"><code>get_ts_items</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L145" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_ts_items</code>(<strong><code>fnames</code></strong>)</p>
 </blockquote>
 <p>get_ts_items return list of tuples. Each tuple corresponds to a timeserie (nump.ndarray) and a label (string)</p>
 
@@ -185,7 +185,7 @@ description: "Basic functions to read timeseries files like `.arff` and `.ts` fi
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_ts_items" class="doc_header"><code>get_ts_items</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L148" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_ts_items</code>(<strong><code>fnames</code></strong>)</p>
+<h4 id="get_ts_items" class="doc_header"><code>get_ts_items</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L145" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_ts_items</code>(<strong><code>fnames</code></strong>)</p>
 </blockquote>
 <p>get_ts_items return list of tuples. Each tuple corresponds to a timeserie (nump.ndarray) and a label (string)</p>
 
@@ -215,7 +215,7 @@ description: "Basic functions to read timeseries files like `.arff` and `.ts` fi
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="show_timeseries" class="doc_header"><code>show_timeseries</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L154" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>show_timeseries</code>(<strong><code>ts</code></strong>, <strong><code>ctx</code></strong>=<em><code>None</code></em>, <strong><code>title</code></strong>=<em><code>None</code></em>, <strong><code>chs</code></strong>=<em><code>None</code></em>, <strong><code>leg</code></strong>=<em><code>True</code></em>, <strong>**<code>kwargs</code></strong>)</p>
+<h4 id="show_timeseries" class="doc_header"><code>show_timeseries</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L151" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>show_timeseries</code>(<strong><code>ts</code></strong>, <strong><code>ctx</code></strong>=<em><code>None</code></em>, <strong><code>title</code></strong>=<em><code>None</code></em>, <strong><code>chs</code></strong>=<em><code>None</code></em>, <strong><code>leg</code></strong>=<em><code>True</code></em>, <strong>**<code>kwargs</code></strong>)</p>
 </blockquote>
 <p>Plot a timeseries.</p>
 <p>Args:</p>
@@ -278,7 +278,7 @@ leg : Display or not a legend</code></pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="file_extract_at_filename" class="doc_header"><code>file_extract_at_filename</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L180" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>file_extract_at_filename</code>(<strong><code>fname</code></strong>, <strong><code>dest</code></strong>)</p>
+<h4 id="file_extract_at_filename" class="doc_header"><code>file_extract_at_filename</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L177" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>file_extract_at_filename</code>(<strong><code>fname</code></strong>, <strong><code>dest</code></strong>)</p>
 </blockquote>
 <p>Extract <code>fname</code> to <code>dest</code>/<code>fname</code>.name folder using <code>tarfile</code> or `zipfile</p>
 
@@ -316,7 +316,7 @@ leg : Display or not a legend</code></pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="unzip_data" class="doc_header"><code>unzip_data</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L190" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>unzip_data</code>(<strong><code>url</code></strong>, <strong><code>fname</code></strong>=<em><code>None</code></em>, <strong><code>dest</code></strong>=<em><code>None</code></em>, <strong><code>c_key</code></strong>=<em><code>'data'</code></em>, <strong><code>force_download</code></strong>=<em><code>False</code></em>)</p>
+<h4 id="unzip_data" class="doc_header"><code>unzip_data</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L187" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>unzip_data</code>(<strong><code>url</code></strong>, <strong><code>fname</code></strong>=<em><code>None</code></em>, <strong><code>dest</code></strong>=<em><code>None</code></em>, <strong><code>c_key</code></strong>=<em><code>'data'</code></em>, <strong><code>force_download</code></strong>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Download <code>url</code> to <code>fname</code> if <code>dest</code> doesn't exist, and un-compress to <code>dest</code>/<code>fname</code>.name folder .</p>
 
@@ -340,7 +340,7 @@ leg : Display or not a legend</code></pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="URLs_TS" class="doc_header"><code>class</code> <code>URLs_TS</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L196" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>URLs_TS</code>()</p>
+<h2 id="URLs_TS" class="doc_header"><code>class</code> <code>URLs_TS</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L193" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>URLs_TS</code>()</p>
 </blockquote>
 <p>Global constants for dataset and model URLs.</p>
 
@@ -687,7 +687,7 @@ leg : Display or not a legend</code></pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fed090f6fd0&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f58fa7e7710&gt;</pre>
 </div>
 
 </div>
@@ -730,10 +730,10 @@ z
       <defs>
        <path d="M 0 0 
 L 0 3.5 
-" id="m50776bfe1e" style="stroke:#000000;stroke-width:0.8;"/>
+" id="me582082f51" style="stroke:#000000;stroke-width:0.8;"/>
       </defs>
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="44.160369" xlink:href="#m50776bfe1e" y="239.758125"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="44.160369" xlink:href="#me582082f51" y="239.758125"/>
       </g>
      </g>
      <g id="text_1">
@@ -769,7 +769,7 @@ z
     <g id="xtick_2">
      <g id="line2d_2">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="105.033097" xlink:href="#m50776bfe1e" y="239.758125"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="105.033097" xlink:href="#me582082f51" y="239.758125"/>
       </g>
      </g>
      <g id="text_2">
@@ -798,7 +798,7 @@ z
     <g id="xtick_3">
      <g id="line2d_3">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="165.905824" xlink:href="#m50776bfe1e" y="239.758125"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="165.905824" xlink:href="#me582082f51" y="239.758125"/>
       </g>
      </g>
      <g id="text_3">
@@ -838,7 +838,7 @@ z
     <g id="xtick_4">
      <g id="line2d_4">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="226.778551" xlink:href="#m50776bfe1e" y="239.758125"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="226.778551" xlink:href="#me582082f51" y="239.758125"/>
       </g>
      </g>
      <g id="text_4">
@@ -886,7 +886,7 @@ z
     <g id="xtick_5">
      <g id="line2d_5">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="287.651278" xlink:href="#m50776bfe1e" y="239.758125"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="287.651278" xlink:href="#me582082f51" y="239.758125"/>
       </g>
      </g>
      <g id="text_5">
@@ -919,7 +919,7 @@ z
     <g id="xtick_6">
      <g id="line2d_6">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="348.524006" xlink:href="#m50776bfe1e" y="239.758125"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="348.524006" xlink:href="#me582082f51" y="239.758125"/>
       </g>
      </g>
      <g id="text_6">
@@ -963,10 +963,10 @@ z
       <defs>
        <path d="M 0 0 
 L -3.5 0 
-" id="m74526428de" style="stroke:#000000;stroke-width:0.8;"/>
+" id="mcf05df632f" style="stroke:#000000;stroke-width:0.8;"/>
       </defs>
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#m74526428de" y="217.564547"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#mcf05df632f" y="217.564547"/>
       </g>
      </g>
      <g id="text_7">
@@ -988,7 +988,7 @@ z
     <g id="ytick_2">
      <g id="line2d_8">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#m74526428de" y="174.882767"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#mcf05df632f" y="174.882767"/>
       </g>
      </g>
      <g id="text_8">
@@ -1002,7 +1002,7 @@ z
     <g id="ytick_3">
      <g id="line2d_9">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#m74526428de" y="132.200987"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#mcf05df632f" y="132.200987"/>
       </g>
      </g>
      <g id="text_9">
@@ -1015,7 +1015,7 @@ z
     <g id="ytick_4">
      <g id="line2d_10">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#m74526428de" y="89.519207"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#mcf05df632f" y="89.519207"/>
       </g>
      </g>
      <g id="text_10">
@@ -1028,7 +1028,7 @@ z
     <g id="ytick_5">
      <g id="line2d_11">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#m74526428de" y="46.837427"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#mcf05df632f" y="46.837427"/>
       </g>
      </g>
      <g id="text_11">
@@ -1040,7 +1040,7 @@ z
     </g>
    </g>
    <g id="line2d_12">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 162.872156 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 162.872156 
 L 50.247642 162.97852 
 L 56.334915 162.844584 
 L 62.422188 163.033707 
@@ -1094,7 +1094,7 @@ L 348.524006 162.148359
 " style="fill:none;stroke:#1f77b4;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_13">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 224.102802 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 224.102802 
 L 50.247642 224.320388 
 L 56.334915 224.724411 
 L 62.422188 225.059338 
@@ -1148,7 +1148,7 @@ L 348.524006 226.377187
 " style="fill:none;stroke:#ff7f0e;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_14">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 168.868606 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 168.868606 
 L 50.247642 169.222224 
 L 56.334915 169.114494 
 L 62.422188 169.296703 
@@ -1202,7 +1202,7 @@ L 348.524006 170.149188
 " style="fill:none;stroke:#2ca02c;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_15">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 97.69362 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 97.69362 
 L 50.247642 97.300438 
 L 56.334915 97.236926 
 L 62.422188 97.316228 
@@ -1256,7 +1256,7 @@ L 348.524006 103.169907
 " style="fill:none;stroke:#d62728;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_16">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 225.061729 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 225.061729 
 L 50.247642 225.508135 
 L 56.334915 225.756677 
 L 62.422188 226.172779 
@@ -1310,7 +1310,7 @@ L 348.524006 229.771242
 " style="fill:none;stroke:#9467bd;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_17">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 164.80688 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 164.80688 
 L 50.247642 164.734279 
 L 56.334915 164.87086 
 L 62.422188 164.764369 
@@ -1364,7 +1364,7 @@ L 348.524006 168.123767
 " style="fill:none;stroke:#8c564b;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_18">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 161.63161 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 161.63161 
 L 50.247642 161.703743 
 L 56.334915 161.749454 
 L 62.422188 161.90375 
@@ -1418,7 +1418,7 @@ L 348.524006 162.148957
 " style="fill:none;stroke:#e377c2;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_19">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 166.478981 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 166.478981 
 L 50.247642 166.640616 
 L 56.334915 166.744547 
 L 62.422188 166.933414 
@@ -1472,7 +1472,7 @@ L 348.524006 168.001653
 " style="fill:none;stroke:#7f7f7f;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_20">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 143.7243 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 143.7243 
 L 50.247642 143.713031 
 L 56.334915 143.714183 
 L 62.422188 143.748884 
@@ -1526,7 +1526,7 @@ L 348.524006 143.865618
 " style="fill:none;stroke:#bcbd22;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_21">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 101.578134 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 101.578134 
 L 50.247642 101.362761 
 L 56.334915 101.252129 
 L 62.422188 101.186144 
@@ -1580,7 +1580,7 @@ L 348.524006 101.059294
 " style="fill:none;stroke:#17becf;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_22">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 170.565333 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 170.565333 
 L 50.247642 170.73764 
 L 56.334915 170.860392 
 L 62.422188 171.054937 
@@ -1634,7 +1634,7 @@ L 348.524006 171.057155
 " style="fill:none;stroke:#1f77b4;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_23">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 139.055425 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 139.055425 
 L 50.247642 139.00903 
 L 56.334915 138.987262 
 L 62.422188 138.988158 
@@ -1688,7 +1688,7 @@ L 348.524006 141.174575
 " style="fill:none;stroke:#ff7f0e;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_24">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 160.747927 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 160.747927 
 L 50.247642 160.810969 
 L 56.334915 160.846822 
 L 62.422188 160.996294 
@@ -1742,7 +1742,7 @@ L 348.524006 161.867897
 " style="fill:none;stroke:#2ca02c;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_25">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 205.686633 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 205.686633 
 L 50.247642 206.029457 
 L 56.334915 206.232491 
 L 62.422188 206.581842 
@@ -1796,7 +1796,7 @@ L 348.524006 208.394023
 " style="fill:none;stroke:#d62728;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_26">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 164.247918 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 164.247918 
 L 50.247642 164.331319 
 L 56.334915 164.379422 
 L 62.422188 164.480832 
@@ -1850,7 +1850,7 @@ L 348.524006 164.174635
 " style="fill:none;stroke:#9467bd;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_27">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 98.194365 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 98.194365 
 L 50.247642 97.967381 
 L 56.334915 97.856835 
 L 62.422188 97.780736 
@@ -1904,7 +1904,7 @@ L 348.524006 98.491131
 " style="fill:none;stroke:#8c564b;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_28">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 209.104337 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 209.104337 
 L 50.247642 209.467172 
 L 56.334915 209.683145 
 L 62.422188 210.0278 
@@ -1958,7 +1958,7 @@ L 348.524006 209.646989
 " style="fill:none;stroke:#e377c2;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_29">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 156.716036 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 156.716036 
 L 50.247642 156.760297 
 L 56.334915 156.792222 
 L 62.422188 156.864823 
@@ -2012,7 +2012,7 @@ L 348.524006 159.105533
 " style="fill:none;stroke:#7f7f7f;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_30">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 154.892158 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 154.892158 
 L 50.247642 154.879781 
 L 56.334915 154.973638 
 L 62.422188 155.077396 
@@ -2066,7 +2066,7 @@ L 348.524006 155.27258
 " style="fill:none;stroke:#bcbd22;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_31">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 212.243067 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 212.243067 
 L 50.247642 212.619778 
 L 56.334915 212.716664 
 L 62.422188 212.962555 
@@ -2120,7 +2120,7 @@ L 348.524006 213.859897
 " style="fill:none;stroke:#17becf;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_32">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 169.621639 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 169.621639 
 L 50.247642 169.657833 
 L 56.334915 169.771623 
 L 62.422188 169.894675 
@@ -2174,7 +2174,7 @@ L 348.524006 169.336057
 " style="fill:none;stroke:#1f77b4;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_33">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 105.134719 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 105.134719 
 L 50.247642 104.947689 
 L 56.334915 104.866934 
 L 62.422188 104.817425 
@@ -2228,7 +2228,7 @@ L 348.524006 106.289817
 " style="fill:none;stroke:#ff7f0e;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_34">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 215.690348 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 215.690348 
 L 50.247642 216.095139 
 L 56.334915 216.829139 
 L 62.422188 216.033681 
@@ -2282,7 +2282,7 @@ L 348.524006 211.63165
 " style="fill:none;stroke:#2ca02c;stroke-linecap:square;stroke-width:1.5;"/>
    </g>
    <g id="line2d_35">
-    <path clip-path="url(#p1128d64b3d)" d="M 44.160369 166.247988 
+    <path clip-path="url(#pfe81394ab6)" d="M 44.160369 166.247988 
 L 50.247642 166.293188 
 L 56.334915 166.366428 
 L 62.422188 166.375861 
@@ -2897,7 +2897,7 @@ L 322.18125 196.875937
   </g>
  </g>
  <defs>
-  <clipPath id="p1128d64b3d">
+  <clipPath id="pfe81394ab6">
    <rect height="217.44" width="334.8" x="28.942188" y="22.318125"/>
   </clipPath>
  </defs>
@@ -3041,7 +3041,7 @@ L 322.18125 196.875937
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_UCR_univariate_list" class="doc_header"><code>get_UCR_univariate_list</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L403" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_UCR_univariate_list</code>()</p>
+<h4 id="get_UCR_univariate_list" class="doc_header"><code>get_UCR_univariate_list</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L400" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_UCR_univariate_list</code>()</p>
 </blockquote>
 
 </div>
@@ -3061,7 +3061,7 @@ L 322.18125 196.875937
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_UCR_multivariate_list" class="doc_header"><code>get_UCR_multivariate_list</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L442" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_UCR_multivariate_list</code>()</p>
+<h4 id="get_UCR_multivariate_list" class="doc_header"><code>get_UCR_multivariate_list</code><a href="https://github.com/ai-fast-track/timeseries/tree/master/timeseries/data.py#L439" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_UCR_multivariate_list</code>()</p>
 </blockquote>
 
 </div>

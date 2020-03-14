@@ -8,9 +8,6 @@ from fastai2.basics import *
 # from fastai2.data.all import *
 
 # Cell
-from zipfile import ZipFile
-
-# Cell
 @docs
 class TSData():
     "Class that loads .arff (soon .ts) files and returns a tuple (data.x , self.y)"
