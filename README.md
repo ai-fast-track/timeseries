@@ -4,8 +4,10 @@
 
 <a href="https://colab.research.google.com/github/ai-fast-track/timeseries/blob/master/nbs/index.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
+![](nbs/images/docs.png) [timeseries package documentation](https://ai-fast-track.github.io/timeseries/)
+
 ## Installation
-> There are may ways to install `timeseries` package. Since `timeseries` is built using `fastai2`, there are also different ways to install fastai2. We will show to differents ways to install them and explain the motivation behin each one of them.
+> There are may ways to install `timeseries` package. Since `timeseries` is built using `fastai2`, there are also different ways to install fastai2. We will show 2 differents ways to install them and explain the motivation behin each one of them.
 
 ### Method 1 : Editable Version
 #### 1A - Installing fastai2
@@ -58,8 +60,6 @@ from fastai2.basics import *
 ```
 from timeseries.all import *
 ```
-
-![](nbs/images/docs.png) [timeseries package documentation](https://ai-fast-track.github.io/timeseries/)
 
 ## Tutorial on timeseries package for fastai2
 
