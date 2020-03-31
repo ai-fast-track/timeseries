@@ -147,3 +147,5 @@ archives
 models/*.pth
 
 blog/
+
+archives/
