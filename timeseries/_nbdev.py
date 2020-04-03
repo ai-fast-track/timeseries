@@ -22,10 +22,28 @@ index = {"TSData": "80_timeseries_data.ipynb",
          "TSDataLoaders": "81_timeseries_core.ipynb",
          "get_n_channels": "81_timeseries_core.ipynb",
          "Ranger": "81_timeseries_core.ipynb",
-         "ts_learner": "81_timeseries_core.ipynb"}
+         "ts_learner": "81_timeseries_core.ipynb",
+         "CMAP": "82_univariate_timeseries_CAM.ipynb",
+         "hooked_backward": "82_univariate_timeseries_CAM.ipynb",
+         "hook_acts": "82_univariate_timeseries_CAM.ipynb",
+         "cam_acts": "82_univariate_timeseries_CAM.ipynb",
+         "cam_acts.name": "82_univariate_timeseries_CAM.ipynb",
+         "acts_scaled": "82_univariate_timeseries_CAM.ipynb",
+         "grad_cam_acts": "82_univariate_timeseries_CAM.ipynb",
+         "grad_cam_acts.name": "82_univariate_timeseries_CAM.ipynb",
+         "CAM_batch_compute": "82_univariate_timeseries_CAM.ipynb",
+         "batchify": "82_univariate_timeseries_CAM.ipynb",
+         "itemize": "82_univariate_timeseries_CAM.ipynb",
+         "get_batch": "82_univariate_timeseries_CAM.ipynb",
+         "show_cam": "82_univariate_timeseries_CAM.ipynb",
+         "cam_batch_plot_one_fig": "82_univariate_timeseries_CAM.ipynb",
+         "cam_batch_plot_multi_fig": "82_univariate_timeseries_CAM.ipynb",
+         "i2o": "82_univariate_timeseries_CAM.ipynb",
+         "lbl_dict": "82_univariate_timeseries_CAM.ipynb"}
 
 modules = ["data.py",
-           "core.py"]
+           "core.py",
+           "cam.py"]
 
 doc_url = "https://ai-fast-track.github.io/timeseries/"
 

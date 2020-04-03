@@ -3,7 +3,10 @@
     "Overview": "/",
     "Timeseries Data": "/timeseries_data",
     "Timeseries Core": "/timeseries_core",
+    "Model interpretation using CAM and GRAD-CAM": "/univariate_timeseries_CAM",
     "Colab Tutorial": "/Colab_timeseries_Tutorial",
+    "Tutorial - 2: Model interpretation using CAM and GRAD-CAM": "/cam_tutorial_ECG200",
+    "Tutorial: Model interpretation using CAM and GRAD-CAM": "/cam_tutorial_GunPoint",
     "Training using default settings": "/training_using_default_settings",
     "Train univariate time series": "/univariate_timeseries_Tutorial"
   }

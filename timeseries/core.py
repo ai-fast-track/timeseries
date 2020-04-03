@@ -199,42 +199,31 @@ class Normalize(Transform):
 def default_show_batch(x, y, samples, ctxs=None, max_n=9, **kwargs):
     if ctxs is None: ctxs = Inf.nones
     ctxs = [b[0].show(ctx=c, title=b[1], **kwargs) for b,c,_ in zip(samples,ctxs,range(max_n))]
-    plt.tight_layout()
     return ctxs
 
 # Cell
 @typedispatch
-def show_batch(x:TensorTS, y, samples, ctxs=None, max_n=9, rows=None, cols=None, figsize=None, title=None, **kwargs):
-    if ctxs is None: ctxs = get_grid(max_n, rows=rows, cols=cols, figsize=figsize)
-
+def show_batch(x:TensorTS, y, samples, ctxs=None, max_n=9, nrows=None, ncols=None, figsize=None, **kwargs):
+    if ctxs is None: ctxs = get_grid(min(len(samples), max_n), nrows=nrows, ncols=ncols, figsize=figsize)
     ctxs = default_show_batch(x, y, samples, ctxs=ctxs, max_n=max_n, **kwargs)
-    if title:
-        plt.suptitle(title, fontsize=16)
-        plt.subplots_adjust()
-        plt.subplots_adjust(left=0.0, wspace=0.4, top=0.9, bottom=0.5)
     return ctxs
 
 # Cell
 @typedispatch
-def show_results(x:TensorTS, y, samples,  outs, ctxs=None, max_n=9, rows=None, cols=None, figsize=None, **kwargs):
-    # if ctxs is None: ctxs = get_grid(min(len(samples), max_n), rows=rows, cols=cols, add_vert=1, figsize=figsize)
-    s = len(samples)  # min(len(samples), max_n)
-    # max_n = min(s, max_n)
-    if ctxs is None: ctxs = get_grid(max_n, rows=rows, cols=cols, add_vert=1, figsize=figsize)
-    # print(len(samples), max_n)
-    # print(samples)
-    # print(type(y))
+def default_show_results(x, y, samples, outs, ctxs=None, max_n=9, **kwargs):
+    if ctxs is None: ctxs = Inf.nones
+    ctxs = [b[0].show(ctx=c, title=f'{o} / {b[1]}',**kwargs) for b,o,c,_ in zip(samples,outs,ctxs,range(max_n))]
+    return ctxs
+
+# Cell
+@typedispatch
+def show_results(x:TensorTS, y, samples, outs, ctxs=None, max_n=9, nrows=None, ncols=None, figsize=None, **kwargs):
+    if ctxs is None: ctxs = get_grid(min(len(samples), max_n), nrows=nrows, ncols=ncols, add_vert=1, figsize=figsize)
     # outs = [('6.0',),('2.0',)]
-    # print(f'outs - before detuplify : {outs}')
     outs = [detuplify(o) for o in outs]
     # outs = ['6.0', '2.0']
-    # print(f'outs : {outs})
 
-    ctxs = [b[0].show(ctx=c, title=f'{o} / {b[1]}', **kwargs) for b,o,c,_ in zip(samples,outs,ctxs,range(max_n))]
-    # if title:
-    #     plt.suptitle(title, fontsize=16)
-    #     plt.subplots_adjust(left=0.0, wspace=0.4, top=0.9)
-    plt.tight_layout()
+    ctxs = default_show_results(x, y, samples, outs, ctxs=ctxs, max_n=max_n, **kwargs)
     return ctxs
 
 # Cell

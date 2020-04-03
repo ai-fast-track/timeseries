@@ -11,10 +11,10 @@
 
 ### Method 1 : Editable Version
 #### 1A - Installing fastai2
-> Important : Only if you have not already installed `fastai2`,install [fastai2](https://dev.fast.ai/#Installing) by following the steps described there.
+> Important :Only if you have not already installed `fastai2`,install [fastai2](https://dev.fast.ai/#Installing) by following the steps described there.
 
 #### 1B - Installing `timeseries` on a local machine
-> Note : Installing an editable version of a package means that you will install a package from its corresponding github repository on your local machine. By doing so, you can pull the latest version whenever a new version is pushed.
+> Note :Installing an editable version of a package means that you will install a package from its corresponding github repository on your local machine. By doing so, you can pull the latest version whenever a new version is pushed.
 To install `timeseries` editable package, follow the instructions here below:
 
 ```
@@ -24,7 +24,7 @@ pip install -e .
 ```
 
 ### Method 2 : Non Editable version
-> Note : Everytime you run the `!pip install git+https:// ...`, you are installing the package latest version stored on github. > Important : As both fastai2 and `timeseries` are still under development, this is an easy way to use them in Google Colab or any other online platform. You can also use it on your local machine.
+> Note :Everytime you run the `!pip install git+https:// ...`, you are installing the package latest version stored on github. > Important :As both fastai2 and `timeseries` are still under development, this is an easy way to use them in Google Colab or any other online platform. You can also use it on your local machine.
 
 #### 2A - Installing `fastai2` from its github repository
 
@@ -995,4 +995,4 @@ interp.plot_confusion_matrix()
 ![](nbs/images/tree.jpg)
 
 ## Credit
-> timeseries for fastai2 was inspired by Ignacio's Oguiza timeseriesAI (https: //github.com/timeseriesAI/timeseriesAI.git).> Inception Time model definition is a modified version of [Ignacio Oguiza] (https: //github.com/timeseriesAI/timeseriesAI/blob/master/torchtimeseries/models/InceptionTime.py) and [Thomas Capelle] (https://github.com/tcapelle/TimeSeries_fastai/blob/master/inception.py) implementaions
+> timeseries for fastai2 was inspired by Ignacio's Oguiza timeseriesAI (https://github.com/timeseriesAI/timeseriesAI.git).> Inception Time model definition is a modified version of [Ignacio Oguiza] (https://github.com/timeseriesAI/timeseriesAI/blob/master/torchtimeseries/models/InceptionTime.py) and [Thomas Capelle] (https://github.com/tcapelle/TimeSeries_fastai/blob/master/inception.py) implementaions

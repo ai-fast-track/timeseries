@@ -16,8 +16,17 @@ entries:
       title: Timeseries Core
       url: /timeseries_core
     - output: web,pdf
+      title: Model interpretation using CAM and GRAD-CAM
+      url: /univariate_timeseries_CAM
+    - output: web,pdf
       title: Colab Tutorial
       url: /Colab_timeseries_Tutorial
+    - output: web,pdf
+      title: 'Tutorial - 2: Model interpretation using CAM and GRAD-CAM'
+      url: /cam_tutorial_ECG200
+    - output: web,pdf
+      title: 'Tutorial: Model interpretation using CAM and GRAD-CAM'
+      url: /cam_tutorial_GunPoint
     - output: web,pdf
       title: Training using default settings
       url: /training_using_default_settings
