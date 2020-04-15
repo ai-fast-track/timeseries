@@ -149,3 +149,4 @@ models/*.pth
 blog/
 
 archives/
+nbs/_*

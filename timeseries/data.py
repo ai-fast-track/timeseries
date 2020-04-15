@@ -8,7 +8,6 @@ from fastai2.basics import *
 # from fastai2.data.all import *
 
 # Cell
-@docs
 class TSData():
     "Class that loads .arff (soon .ts) files and returns a tuple (data.x , self.y)"
     "self.x is a list of 2D array with a shape (n_samples, nb_channels, sequence_length) "
@@ -31,7 +30,14 @@ class TSData():
     def get_x(self, as_list=True): return(list(self.x))
     def get_y(self): return(self.y)
     def get_items(self): return [(item, str(label)) for (item, label) in zip(list(self.x), self.y)]
+    def get_lists(self): return (list(self.x), self.y)
     def __getitem__(self, i): return (self.x[i], str(self.y[i]))
+
+    def sample(self, cut):
+        n=self.x.shape[0]
+        rand_idx = L(int(i) for i in torch.randperm(n))
+        idxs = rand_idx[:cut]
+        return [(self.x[i], str(self.y[i])) for i in idxs]
 
     @property
     def sizes(self): return (self.x.shape, self.y.shape)
@@ -368,7 +374,7 @@ class URLs_TS():
     UNI_SMOOTH_SUBSPACE                 = f'{URL}SmoothSubspace.zip'
     UNI_SONY_AIBO_ROBOT_SURFACE1        = f'{URL}SonyAIBORobotSurface1.zip'
     UNI_SONY_AIBO_ROBOT_SURFACE2        = f'{URL}SonyAIBORobotSurface2.zip'
-    UNI_STARLIGHT_CURVES                = f'{URL}StarlightCurves.zip'
+    UNI_STARLIGHT_CURVES                = f'{URL}StarLightCurves.zip'
     UNI_STRAWBERRY                      = f'{URL}Strawberry.zip'
     UNI_SWEDISH_LEAF                    = f'{URL}SwedishLeaf.zip'
     UNI_SYMBOLS                         = f'{URL}Symbols.zip'

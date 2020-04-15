@@ -359,7 +359,7 @@ def get_batch(dataset, idxs):
 @delegates(LineCollection.__init__)
 def show_cam(batch, model, layer=5, func_cam=cam_acts, reduction='mean', force_scale=True,
                     scale_range=(0, 1), cmap="Spectral_r", linewidth=4, linestyles='solid', alpha=1.0, scatter=False,
-                    i2o=noop, figsize=None, multi_fig=False, **kwargs):
+                    i2o=noop, figsize=None, multi_fig=False, confidence=None, savefig=None, **kwargs):
     'Compute CAM using `func_cam` function, and plot a batch of colored time series `tseries`. The colors correspond to the         scaled CAM values. The time series are plot either on a single figure or on a multiple figures'
 
     # args = []
@@ -367,12 +367,12 @@ def show_cam(batch, model, layer=5, func_cam=cam_acts, reduction='mean', force_s
         if figsize==None: figsize=(6,4)
         cam_batch_plot_one_fig(batch, model, layer=layer, func_cam=func_cam, reduction=reduction, force_scale=force_scale,
                             scale_range=scale_range, cmap=cmap, linewidth=linewidth, linestyles=linestyles, alpha=alpha,
-                            scatter=scatter, i2o=i2o, figsize=figsize, **kwargs)
+                            scatter=scatter, i2o=i2o, figsize=figsize, confidence=confidence, savefig=savefig,**kwargs)
     else:
         if figsize==None: figsize=(13,4)
         cam_batch_plot_multi_fig(batch, model, layer=layer, func_cam=func_cam, reduction=reduction, force_scale=force_scale,
                             scale_range=scale_range, cmap=cmap, linewidth=linewidth, linestyles=linestyles, alpha=alpha,
-                            scatter=scatter, i2o=i2o, figsize=figsize, **kwargs)
+                            scatter=scatter, i2o=i2o, figsize=figsize, confidence=confidence, savefig=savefig, **kwargs)
 
 
 
@@ -380,7 +380,7 @@ def show_cam(batch, model, layer=5, func_cam=cam_acts, reduction='mean', force_s
 @delegates(LineCollection.__init__)
 def cam_batch_plot_one_fig(batch, model, layer=5, func_cam=cam_acts, reduction='mean', force_scale=True,
                             scale_range=(0, 1), cmap="Spectral_r", linewidth=4, linestyles='solid', alpha=1.0, scatter=False,
-                            i2o=noop, figsize=(6,4), **kwargs):
+                            i2o=noop, figsize=(6,4), confidence=None, savefig=None, **kwargs):
 
     'Compute CAM using `func_cam` function, and plot a batch of colored time series `tseries`. The colors correspond to the   scaled CAM values. The time series are plot on a single figure'
 
@@ -444,6 +444,7 @@ def cam_batch_plot_one_fig(batch, model, layer=5, func_cam=cam_acts, reduction='
     title = ' - '.join(titles)
     if not hasattr(func_cam, 'name'): func_cam.name = str(func_cam)
     title =  f'[{title}] - {func_cam.name} - {reduction}'
+    if confidence!=None: title = f'{title}\n confidence[0]'
     # print(f'Title: {title}')
     plt.title(title)
 
@@ -454,7 +455,8 @@ def cam_batch_plot_one_fig(batch, model, layer=5, func_cam=cam_acts, reduction='
 
 # Cell
 @delegates(LineCollection.__init__)
-def cam_batch_plot_multi_fig(batch, model, layer=5, func_cam=cam_acts, reduction='mean',force_scale=True, scale_range=(0, 1),                        cmap="Spectral_r", linewidth=4, linestyles='solid', alpha=1.0, scatter=False, i2o=noop, figsize=(13,4),                        **kwargs):
+def cam_batch_plot_multi_fig(batch, model, layer=5, func_cam=cam_acts, reduction='mean',force_scale=True, scale_range=(0, 1),                        cmap="Spectral_r", linewidth=4, linestyles='solid', alpha=1.0, scatter=False, i2o=noop,
+                        figsize=(13, 4), confidence=None, savefig=None, **kwargs):
     'Compute CAM using `func_cam` function, and plot a batch of colored time series `tseries`. The colors correspond to the        scaled CAM values. Each time series is plotted on a separate figure'
 
     # batch use-cases
@@ -463,7 +465,7 @@ def cam_batch_plot_multi_fig(batch, model, layer=5, func_cam=cam_acts, reduction
     #   - a list of tuples (tseries, y) that we build from a dataset (a dataset item is a tuple of (tseries, y)
     #   - a single dataset item meaning a a tuple of (tseries, y)
 
-
+    # print(f'Confidence: {confidence}')
     if not isinstance(batch, list):
         if len(batch[0].shape)==3:   # a real batch meaning a tuple of (a list of tseries, a list of y)
             b = itemize(batch)
@@ -499,6 +501,7 @@ def cam_batch_plot_multi_fig(batch, model, layer=5, func_cam=cam_acts, reduction
             title = i2o(y)
             if not hasattr(func_cam, 'name'): func_cam.name = str(func_cam)
             title =  f'[{title}] - {func_cam.name} - {reduction}'
+            if confidence!=None: title = f'{title}\n {confidence[idx-1]}'
             plt.xlim(t.min(), t.max())
             plt.ylim(ts_min_max[0]*1.2, ts_min_max[1]*1.2)
             plt.title(title)
@@ -518,6 +521,7 @@ def cam_batch_plot_multi_fig(batch, model, layer=5, func_cam=cam_acts, reduction
             title = i2o(y)
             if not hasattr(func_cam, 'name'): func_cam.name = str(func_cam)
             title =  f'[{title}] - {func_cam.name} - {reduction}'
+            if confidence!=None: title = f'{title}\n {confidence[idx-1]}'
             title_list.append(title)
             idx += 1
 
@@ -540,6 +544,8 @@ def cam_batch_plot_multi_fig(batch, model, layer=5, func_cam=cam_acts, reduction
             fig.colorbar(im, ax=axs[idx])
             idx += 1
         plt.show()
+
+    if savefig!=None: plt.savefig(savefig)
 
 # Cell
 # Example of i2o() function

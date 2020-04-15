@@ -43,6 +43,7 @@ class TensorTS(TensorBase):
 class ToTensorTS(ItemTransform):
     # "x : 2D numpy array"
     def encodes(self, x): return TensorTS(x)
+    def decodes(self, x): return x.numpy()
 
 # Cell
 def TSBlock():
