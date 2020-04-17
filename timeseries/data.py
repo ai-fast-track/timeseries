@@ -170,8 +170,8 @@ def show_timeseries(ts, ctx=None, title=None, chs=None, leg=True, figsize=None, 
         leg : Display or not a legend
     """
 
-    print(figsize)
-    if figsize: plt.figure(figsize=figsize)
+    # print(figsize)
+    # if figsize: plt.figure(figsize=figsize)
     if ctx is None: fig, ctx = plt.subplots()
     t = range(ts.shape[1])
     chs_max = max(chs) if chs else 0
