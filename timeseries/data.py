@@ -32,6 +32,7 @@ class TSData():
     def get_items(self): return [(item, str(label)) for (item, label) in zip(list(self.x), self.y)]
     def get_lists(self): return (list(self.x), self.y)
     def __getitem__(self, i): return (self.x[i], str(self.y[i]))
+    def get_nb_samples(self): return self.x.shape[0]
 
     def sample(self, cut):
         n=self.x.shape[0]
@@ -154,7 +155,7 @@ def get_ts_items(fnames):
     return data.get_items()
 
 # Cell
-def show_timeseries(ts, ctx=None, title=None, chs=None, leg=True, **kwargs):
+def show_timeseries(ts, ctx=None, title=None, chs=None, leg=True, figsize=None, **kwargs):
     """
     Plot a timeseries.
 
@@ -169,12 +170,14 @@ def show_timeseries(ts, ctx=None, title=None, chs=None, leg=True, **kwargs):
         leg : Display or not a legend
     """
 
+    print(figsize)
+    if figsize: plt.figure(figsize=figsize)
     if ctx is None: fig, ctx = plt.subplots()
     t = range(ts.shape[1])
     chs_max = max(chs) if chs else 0
     channels = chs if (chs and (chs_max < ts.shape[0])) else range(ts.shape[0])
     for ch in channels:
-        ctx.plot(t, ts[ch], label='ch'+str(ch))
+        ctx.plot(t, ts[ch], label='ch'+str(ch), figsize=figsize)
     if leg: ctx.legend(loc='upper right', ncol=2, framealpha=0.5)
     if title: ctx.set_title(title)
     return ctx
