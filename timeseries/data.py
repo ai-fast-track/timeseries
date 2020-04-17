@@ -177,7 +177,7 @@ def show_timeseries(ts, ctx=None, title=None, chs=None, leg=True, figsize=None, 
     chs_max = max(chs) if chs else 0
     channels = chs if (chs and (chs_max < ts.shape[0])) else range(ts.shape[0])
     for ch in channels:
-        ctx.plot(t, ts[ch], label='ch'+str(ch), figsize=figsize)
+        ctx.plot(t, ts[ch], label='ch'+str(ch))
     if leg: ctx.legend(loc='upper right', ncol=2, framealpha=0.5)
     if title: ctx.set_title(title)
     return ctx
