@@ -58,7 +58,7 @@ class TSData():
         is_multi_variate = False
         is_first_case = True
 
-        with open(fname, 'r') as f:
+        with open(fname, 'r', encoding="utf8") as f:
             for line in f:
                 if line.strip():
                     if is_multi_variate is False and "@attribute" in line.lower() and "relational" in line.lower():
