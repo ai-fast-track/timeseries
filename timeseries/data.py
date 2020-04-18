@@ -155,29 +155,29 @@ def get_ts_items(fnames):
     return data.get_items()
 
 # Cell
-def show_timeseries(ts, ctx=None, title=None, chs=None, leg=True, figsize=None, **kwargs):
+def show_timeseries(ts, ctx=None, title=None, chs=None, leg=True, figsize=None, linewidth=3, linestyle='solid', color='orange',                         **kwargs):
     """
     Plot a timeseries.
 
     Args:
 
         title : usually the class of the timeseries
-
         ts : timeseries. It should have a shape of (nb_channels, sequence_length)
-
         chs : array representing a list of channels to plot
-
         leg : Display or not a legend
     """
 
-    # print(figsize)
-    # if figsize: plt.figure(figsize=figsize)
-    if ctx is None: fig, ctx = plt.subplots()
+    if ctx is None: fig, ctx = plt.subplots(figsize=figsize, **kwargs)
+    n_channels = ts.shape[0]
     t = range(ts.shape[1])
     chs_max = max(chs) if chs else 0
     channels = chs if (chs and (chs_max < ts.shape[0])) else range(ts.shape[0])
     for ch in channels:
-        ctx.plot(t, ts[ch], label='ch'+str(ch))
+        if n_channels==1:
+            ctx.plot(t, ts[ch], label='ch'+str(ch), linewidth=linewidth, color=color, linestyle=linestyle)
+        else:
+            ctx.plot(t, ts[ch], label='ch'+str(ch), linewidth=linewidth, linestyle=linestyle)
+
     if leg: ctx.legend(loc='upper right', ncol=2, framealpha=0.5)
     if title: ctx.set_title(title)
     return ctx
