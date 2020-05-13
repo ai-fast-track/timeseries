@@ -53,6 +53,9 @@ pip install -e .
 %matplotlib inline
 ```
 
+    The history saving thread hit an unexpected error (DatabaseError('database disk image is malformed',)).History will not be written to the database.
+
+
 ```
 from fastai2.basics import *
 ```
@@ -200,7 +203,19 @@ splits
 ### Creating a Datasets object
 
 ```
-tfms = [[ItemGetter(0), ToTensorTS()], [ItemGetter(1), Categorize()]]
+# export
+lbl_dict = dict([
+    ('1.0', 'I have command'),   
+    ('2.0', 'All clear'),   
+    ('3.0', 'Not clear'),   
+    ('4.0', 'Spread wings'),   
+    ('5.0', 'Fold wings'),   
+    ('6.0', 'Lock wings')]
+)
+```
+
+```
+tfms = [[ItemGetter(0), ToTensorTS()], [ItemGetter(1), lbl_dict.get, Categorize()]]
 
 # Create a dataset
 ds = Datasets(items, tfms, splits=splits)
@@ -210,11 +225,11 @@ ds = Datasets(items, tfms, splits=splits)
 ax = show_at(ds, 2, figsize=(1,1))
 ```
 
-    3.0
+    Not clear
 
 
 
-![svg](docs/images/output_35_1.svg)
+![svg](docs/images/output_36_1.svg)
 
 
 ## Creating a `Dataloaders` object
@@ -236,7 +251,7 @@ dls1.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
 
-![svg](docs/images/output_39_0.svg)
+![svg](docs/images/output_40_0.svg)
 
 
 # Using `DataBlock` class
@@ -244,10 +259,10 @@ dls1.show_batch(max_n=9, chs=range(0,12,3))
 ### 2nd method : using `DataBlock` and `DataBlock.get_items()` 
 
 ```
-getters = [ItemGetter(0), ItemGetter(1)]  
 tsdb = DataBlock(blocks=(TSBlock, CategoryBlock),
                    get_items=get_ts_items,
-                   getters=getters,
+                   get_x = ItemGetter(0),
+                   get_y = Pipeline([ItemGetter(1), lbl_dict.get]),
                    splitter=RandomSplitter(seed=seed),
                    batch_tfms = batch_tfms)
 ```
@@ -260,11 +275,11 @@ tsdb.summary(fnames)
     Collecting items from [Path('/home/farid/.fastai/data/NATOPS/NATOPS_TRAIN.arff'), Path('/home/farid/.fastai/data/NATOPS/NATOPS_TEST.arff')]
     Found 360 items
     2 datasets of sizes 288,72
-    Setting up Pipeline: itemgetter -> ToTensorTS
-    Setting up Pipeline: itemgetter -> Categorize
+    Setting up Pipeline: ItemGetter -> ToTensorTS
+    Setting up Pipeline: ItemGetter -> dict.get -> Categorize
     
     Building one sample
-      Pipeline: itemgetter -> ToTensorTS
+      Pipeline: ItemGetter -> ToTensorTS
         starting from
           ([[-0.540579 -0.54101  -0.540603 ... -0.56305  -0.566314 -0.553712]
      [-1.539567 -1.540042 -1.538992 ... -1.532014 -1.534645 -1.536015]
@@ -273,7 +288,7 @@ tsdb.summary(fnames)
      [ 0.454542  0.449924  0.453195 ...  0.480281  0.45537   0.457275]
      [-1.411445 -1.363464 -1.390869 ... -1.468123 -1.368706 -1.386574]
      [-0.473406 -0.453322 -0.463813 ... -0.440582 -0.427211 -0.435581]], 2.0)
-        applying itemgetter gives
+        applying ItemGetter gives
           [[-0.540579 -0.54101  -0.540603 ... -0.56305  -0.566314 -0.553712]
      [-1.539567 -1.540042 -1.538992 ... -1.532014 -1.534645 -1.536015]
      [-0.608539 -0.604609 -0.607679 ... -0.593769 -0.592854 -0.599014]
@@ -283,7 +298,7 @@ tsdb.summary(fnames)
      [-0.473406 -0.453322 -0.463813 ... -0.440582 -0.427211 -0.435581]]
         applying ToTensorTS gives
           TensorTS of size 24x51
-      Pipeline: itemgetter -> Categorize
+      Pipeline: ItemGetter -> dict.get -> Categorize
         starting from
           ([[-0.540579 -0.54101  -0.540603 ... -0.56305  -0.566314 -0.553712]
      [-1.539567 -1.540042 -1.538992 ... -1.532014 -1.534645 -1.536015]
@@ -292,10 +307,12 @@ tsdb.summary(fnames)
      [ 0.454542  0.449924  0.453195 ...  0.480281  0.45537   0.457275]
      [-1.411445 -1.363464 -1.390869 ... -1.468123 -1.368706 -1.386574]
      [-0.473406 -0.453322 -0.463813 ... -0.440582 -0.427211 -0.435581]], 2.0)
-        applying itemgetter gives
+        applying ItemGetter gives
           2.0
+        applying dict.get gives
+          All clear
         applying Categorize gives
-          TensorCategory(1)
+          TensorCategory(0)
     
     Final sample: (TensorTS([[-0.5406, -0.5410, -0.5406,  ..., -0.5630, -0.5663, -0.5537],
             [-1.5396, -1.5400, -1.5390,  ..., -1.5320, -1.5346, -1.5360],
@@ -303,7 +320,7 @@ tsdb.summary(fnames)
             ...,
             [ 0.4545,  0.4499,  0.4532,  ...,  0.4803,  0.4554,  0.4573],
             [-1.4114, -1.3635, -1.3909,  ..., -1.4681, -1.3687, -1.3866],
-            [-0.4734, -0.4533, -0.4638,  ..., -0.4406, -0.4272, -0.4356]]), TensorCategory(1))
+            [-0.4734, -0.4533, -0.4638,  ..., -0.4406, -0.4272, -0.4356]]), TensorCategory(0))
     
     
     Setting up after_item: Pipeline: ToTensor
@@ -314,9 +331,9 @@ tsdb.summary(fnames)
     Applying item_tfms to the first sample:
       Pipeline: ToTensor
         starting from
-          (TensorTS of size 24x51, TensorCategory(1))
+          (TensorTS of size 24x51, TensorCategory(0))
         applying ToTensor gives
-          (TensorTS of size 24x51, TensorCategory(1))
+          (TensorTS of size 24x51, TensorCategory(0))
     
     Adding the next 3 samples
     
@@ -327,9 +344,9 @@ tsdb.summary(fnames)
     Applying batch_tfms to the batch built
       Pipeline: Normalize
         starting from
-          (TensorTS of size 4x24x51, TensorCategory([1, 5, 4, 5]))
+          (TensorTS of size 4x24x51, TensorCategory([0, 3, 1, 3]))
         applying Normalize gives
-          (TensorTS of size 4x24x51, TensorCategory([1, 5, 4, 5]))
+          (TensorTS of size 4x24x51, TensorCategory([0, 3, 1, 3]))
 
 
 ```
@@ -342,17 +359,17 @@ dls2.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
 
-![svg](docs/images/output_45_0.svg)
+![svg](docs/images/output_46_0.svg)
 
 
 ### 3rd method : using `DataBlock` and passing `items` object to the `DataBlock.dataloaders()`
 
 ```
-getters = [ItemGetter(0), ItemGetter(1)] 
+# getters = [ItemGetter(0), ItemGetter(1)] 
 tsdb = DataBlock(blocks=(TSBlock, CategoryBlock),
-                   getters=getters,
-                   splitter=RandomSplitter(seed=seed)
-                   )
+                   get_x = ItemGetter(0),
+                   get_y = Pipeline([ItemGetter(1), lbl_dict.get]),
+                   splitter=RandomSplitter(seed=seed))
 ```
 
 ```
@@ -364,13 +381,13 @@ dls3.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
 
-![svg](docs/images/output_49_0.svg)
+![svg](docs/images/output_50_0.svg)
 
 
 ### 4th method : using `TSDataLoaders` class and `TSDataLoaders.from_files()`
 
 ```
-dls4 = TSDataLoaders.from_files(fnames, batch_tfms=batch_tfms, num_workers=0, device=default_device())
+dls4 = TSDataLoaders.from_files(fnames=fnames, path=path, batch_tfms=batch_tfms, lbl_dict=lbl_dict, num_workers=0, device=default_device())
 ```
 
 ```
@@ -378,7 +395,7 @@ dls4.show_batch(max_n=9, chs=range(0,12,3))
 ```
 
 
-![svg](docs/images/output_52_0.svg)
+![svg](docs/images/output_53_0.svg)
 
 
 ## Training a Model
@@ -687,7 +704,7 @@ print(learn.summary())
     Total trainable params: 472,742
     Total non-trainable params: 0
     
-    Optimizer used: <function opt_func at 0x7ff7286aa598>
+    Optimizer used: <function opt_func at 0x7fa7e7a25400>
     Loss function: LabelSmoothingCrossEntropy()
     
     Callbacks:
@@ -705,26 +722,41 @@ lr_min, lr_steep
 
 
 
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='0' class='' max='26', style='width:300px; height:20px; vertical-align: middle;'></progress>
+
+</div>
 
 
 
 
 
-    (0.03630780577659607, 0.0003981071640737355)
+
+
+    (0.05248074531555176, 0.0008317637839354575)
 
 
 
 
-![svg](docs/images/output_61_2.svg)
+![svg](docs/images/output_62_2.svg)
 
 
 ### Train
 
 ```
-#lr_max=1e-3
-epochs=30; lr_max=lr_steep;  pct_start=.7; moms=(0.95,0.85,0.95); wd=1e-2
-learn.fit_one_cycle(epochs, lr_max=lr_max, pct_start=pct_start,  moms=moms, wd=wd)
-# learn.fit_one_cycle(epochs=20, lr_max=lr_steep)
+learn.fit_one_cycle(25, lr_max=1e-3)
 ```
 
 
@@ -741,212 +773,177 @@ learn.fit_one_cycle(epochs, lr_max=lr_max, pct_start=pct_start,  moms=moms, wd=w
   <tbody>
     <tr>
       <td>0</td>
-      <td>2.834904</td>
-      <td>1.795923</td>
-      <td>0.152778</td>
-      <td>00:02</td>
+      <td>2.944844</td>
+      <td>1.795526</td>
+      <td>0.222222</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>2.842472</td>
-      <td>1.798778</td>
-      <td>0.152778</td>
-      <td>00:01</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>2.811872</td>
-      <td>1.802382</td>
-      <td>0.152778</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>2.776238</td>
-      <td>1.806626</td>
-      <td>0.152778</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>2.728971</td>
-      <td>1.811036</td>
-      <td>0.152778</td>
-      <td>00:01</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>2.668968</td>
-      <td>1.815441</td>
-      <td>0.194444</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>2.605878</td>
-      <td>1.815416</td>
+      <td>2.927313</td>
+      <td>1.799789</td>
       <td>0.222222</td>
       <td>00:02</td>
     </tr>
     <tr>
+      <td>2</td>
+      <td>2.780479</td>
+      <td>1.805888</td>
+      <td>0.222222</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2.563461</td>
+      <td>1.810662</td>
+      <td>0.222222</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2.274817</td>
+      <td>1.819216</td>
+      <td>0.194444</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>1.995963</td>
+      <td>1.831101</td>
+      <td>0.111111</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>1.775486</td>
+      <td>1.739081</td>
+      <td>0.250000</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
       <td>7</td>
-      <td>2.509938</td>
-      <td>1.808677</td>
-      <td>0.236111</td>
-      <td>00:02</td>
+      <td>1.598613</td>
+      <td>1.656564</td>
+      <td>0.319444</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>2.395904</td>
-      <td>1.782158</td>
-      <td>0.250000</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>2.286265</td>
-      <td>1.583869</td>
-      <td>0.361111</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>2.162855</td>
-      <td>1.421896</td>
-      <td>0.458333</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>2.033385</td>
-      <td>1.281669</td>
+      <td>1.455424</td>
+      <td>1.456199</td>
       <td>0.486111</td>
       <td>00:02</td>
     </tr>
     <tr>
-      <td>12</td>
-      <td>1.913663</td>
-      <td>0.952594</td>
+      <td>9</td>
+      <td>1.338929</td>
+      <td>1.178829</td>
+      <td>0.666667</td>
+      <td>00:02</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>1.241805</td>
+      <td>0.980383</td>
       <td>0.777778</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>1.158097</td>
+      <td>0.845092</td>
+      <td>0.819444</td>
+      <td>00:02</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>1.089147</td>
+      <td>0.796425</td>
+      <td>0.833333</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>1.793140</td>
-      <td>0.873441</td>
-      <td>0.791667</td>
+      <td>1.028267</td>
+      <td>0.729031</td>
+      <td>0.847222</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>14</td>
-      <td>1.680594</td>
-      <td>0.827057</td>
-      <td>0.819444</td>
+      <td>0.974517</td>
+      <td>0.698238</td>
+      <td>0.847222</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>15</td>
-      <td>1.580222</td>
-      <td>0.728311</td>
-      <td>0.833333</td>
-      <td>00:02</td>
+      <td>0.928659</td>
+      <td>0.683433</td>
+      <td>0.861111</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>16</td>
-      <td>1.486642</td>
-      <td>0.712666</td>
-      <td>0.847222</td>
+      <td>0.885688</td>
+      <td>0.664901</td>
+      <td>0.875000</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>17</td>
-      <td>1.400012</td>
-      <td>0.711462</td>
-      <td>0.833333</td>
-      <td>00:02</td>
+      <td>0.847885</td>
+      <td>0.656445</td>
+      <td>0.875000</td>
+      <td>00:01</td>
     </tr>
     <tr>
       <td>18</td>
-      <td>1.324036</td>
-      <td>0.714839</td>
-      <td>0.819444</td>
-      <td>00:01</td>
-    </tr>
-    <tr>
-      <td>19</td>
-      <td>1.254413</td>
-      <td>0.697279</td>
-      <td>0.847222</td>
-      <td>00:01</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>1.189490</td>
-      <td>0.691324</td>
-      <td>0.861111</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>21</td>
-      <td>1.130941</td>
-      <td>0.692367</td>
-      <td>0.847222</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>22</td>
-      <td>1.077336</td>
-      <td>0.691770</td>
-      <td>0.847222</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>23</td>
-      <td>1.027858</td>
-      <td>0.683175</td>
-      <td>0.875000</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>24</td>
-      <td>0.982550</td>
-      <td>0.675254</td>
-      <td>0.875000</td>
-      <td>00:01</td>
-    </tr>
-    <tr>
-      <td>25</td>
-      <td>0.940221</td>
-      <td>0.667658</td>
+      <td>0.815800</td>
+      <td>0.652686</td>
       <td>0.888889</td>
       <td>00:02</td>
     </tr>
     <tr>
-      <td>26</td>
-      <td>0.902526</td>
-      <td>0.663029</td>
-      <td>0.875000</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>27</td>
-      <td>0.867685</td>
-      <td>0.666622</td>
-      <td>0.861111</td>
-      <td>00:02</td>
-    </tr>
-    <tr>
-      <td>28</td>
-      <td>0.836503</td>
-      <td>0.660849</td>
+      <td>19</td>
+      <td>0.785746</td>
+      <td>0.632707</td>
       <td>0.861111</td>
       <td>00:01</td>
     </tr>
     <tr>
-      <td>29</td>
-      <td>0.808390</td>
-      <td>0.658917</td>
-      <td>0.861111</td>
+      <td>20</td>
+      <td>0.759073</td>
+      <td>0.629178</td>
+      <td>0.888889</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>0.734687</td>
+      <td>0.635769</td>
+      <td>0.888889</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>0.712889</td>
+      <td>0.628735</td>
+      <td>0.902778</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>0.692790</td>
+      <td>0.628225</td>
+      <td>0.902778</td>
+      <td>00:02</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>0.674836</td>
+      <td>0.628719</td>
+      <td>0.902778</td>
       <td>00:02</td>
     </tr>
   </tbody>
@@ -960,7 +957,7 @@ learn.recorder.plot_loss()
 ```
 
 
-![svg](docs/images/output_65_0.svg)
+![svg](docs/images/output_66_0.svg)
 
 
 ### Showing the results
@@ -971,28 +968,59 @@ learn.show_results(max_n=9, chs=range(0,12,3))
 
 
 
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='0' class='' max='1', style='width:300px; height:20px; vertical-align: middle;'></progress>
+
+</div>
 
 
 
-![svg](docs/images/output_67_1.svg)
+
+![svg](docs/images/output_68_1.svg)
 
 
 ### Showing the confusion matrix
 
 ```
 interp = ClassificationInterpretation.from_learner(learn)
-interp.plot_confusion_matrix()
+interp.plot_confusion_matrix(figsize=(10,8))
 ```
 
 
 
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='0' class='' max='2', style='width:300px; height:20px; vertical-align: middle;'></progress>
+
+</div>
 
 
 
-![svg](docs/images/output_69_1.svg)
+
+![svg](docs/images/output_70_1.svg)
 
 
 ![](nbs/images/tree.jpg)
-
-## Credit
-> timeseries for fastai2 was inspired by Ignacio's Oguiza timeseriesAI (https://github.com/timeseriesAI/timeseriesAI.git).> Inception Time model definition is a modified version of [Ignacio Oguiza] (https://github.com/timeseriesAI/timeseriesAI/blob/master/torchtimeseries/models/InceptionTime.py) and [Thomas Capelle] (https://github.com/tcapelle/TimeSeries_fastai/blob/master/inception.py) implementaions
