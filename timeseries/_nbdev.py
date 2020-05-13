@@ -19,6 +19,7 @@ index = {"TSData": "80_timeseries_data.ipynb",
          "Standardize": "81_timeseries_core.ipynb",
          "Normalize": "81_timeseries_core.ipynb",
          "default_show_batch": "81_timeseries_core.ipynb",
+         "lbl_dict": "82_univariate_timeseries_CAM.ipynb",
          "TSDataLoaders": "81_timeseries_core.ipynb",
          "get_n_channels": "81_timeseries_core.ipynb",
          "Ranger": "81_timeseries_core.ipynb",
@@ -39,8 +40,7 @@ index = {"TSData": "80_timeseries_data.ipynb",
          "show_cam": "82_univariate_timeseries_CAM.ipynb",
          "cam_batch_plot_one_fig": "82_univariate_timeseries_CAM.ipynb",
          "cam_batch_plot_multi_fig": "82_univariate_timeseries_CAM.ipynb",
-         "i2o": "82_univariate_timeseries_CAM.ipynb",
-         "lbl_dict": "82_univariate_timeseries_CAM.ipynb"}
+         "i2o": "82_univariate_timeseries_CAM.ipynb"}
 
 modules = ["data.py",
            "core.py",
