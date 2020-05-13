@@ -7,7 +7,8 @@
     "Colab Tutorial": "/Colab_timeseries_Tutorial",
     "Tutorial - 2: Model Interpretation for ECG200 Dataset": "/cam_tutorial_ECG200",
     "Tutorial 1: Model Interpretation for GunPoint Dataset": "/cam_tutorial_GunPoint",
-    "Inference (Predictions)": "/inference_voila",
+    "Inference": "/inference_tuorial",
+    "Deployment": "/inference_voila",
     "Training using default settings": "/training_using_default_settings",
     "Train univariate time series": "/univariate_timeseries_Tutorial"
   }

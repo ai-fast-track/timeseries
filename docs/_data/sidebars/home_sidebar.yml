@@ -28,7 +28,10 @@ entries:
       title: 'Tutorial 1: Model Interpretation for GunPoint Dataset'
       url: /cam_tutorial_GunPoint
     - output: web,pdf
-      title: Inference (Predictions)
+      title: Inference
+      url: /inference_tuorial
+    - output: web,pdf
+      title: Deployment
       url: /inference_voila
     - output: web,pdf
       title: Training using default settings
