@@ -203,7 +203,6 @@ splits
 ### Creating a Datasets object
 
 ```
-# export
 lbl_dict = dict([
     ('1.0', 'I have command'),   
     ('2.0', 'All clear'),   
