@@ -5,7 +5,7 @@ __all__ = ['TSData', 'get_ts_items', 'show_timeseries', 'file_extract_at_filenam
 
 # Cell
 from fastai2.basics import *
-# from fastai2.data.all import *
+from fastai2.data.all import *
 
 # Cell
 class TSData():
