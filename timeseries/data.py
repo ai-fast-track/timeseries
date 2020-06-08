@@ -5,7 +5,7 @@ __all__ = ['TSData', 'get_ts_items', 'show_timeseries', 'file_extract_at_filenam
 
 # Cell
 from fastai2.basics import *
-# from fastai2.data.all import *
+from fastai2.data.all import *
 
 # Cell
 class TSData():
@@ -166,7 +166,7 @@ def show_timeseries(ts, ctx=None, title=None, chs=None, leg=True, figsize=None, 
         chs : array representing a list of channels to plot
         leg : Display or not a legend
     """
-
+    fig = None
     if ctx is None: fig, ctx = plt.subplots(figsize=figsize, **kwargs)
     n_channels = ts.shape[0]
     t = range(ts.shape[1])
@@ -180,7 +180,8 @@ def show_timeseries(ts, ctx=None, title=None, chs=None, leg=True, figsize=None, 
 
     if leg: ctx.legend(loc='upper right', ncol=2, framealpha=0.5)
     if title: ctx.set_title(title)
-    return ctx
+    return fig
+    # return ctx
 
 # Cell
 def file_extract_at_filename(fname, dest):

@@ -360,21 +360,18 @@ def get_batch(dataset, idxs):
 def show_cam(batch, model, layer=5, func_cam=cam_acts, reduction='mean', force_scale=True,
                     scale_range=(0, 1), cmap="Spectral_r", linewidth=4, linestyles='solid', alpha=1.0, scatter=False,
                     i2o=noop, figsize=None, multi_fig=False, confidence=None, savefig=None, **kwargs):
+
     'Compute CAM using `func_cam` function, and plot a batch of colored time series `tseries`. The colors correspond to the         scaled CAM values. The time series are plot either on a single figure or on a multiple figures'
 
     # args = []
     if multi_fig==False:
         if figsize==None: figsize=(6,4)
-        cam_batch_plot_one_fig(batch, model, layer=layer, func_cam=func_cam, reduction=reduction, force_scale=force_scale,
+        return cam_batch_plot_one_fig(batch, model, layer=layer, func_cam=func_cam, reduction=reduction, force_scale=force_scale,
                             scale_range=scale_range, cmap=cmap, linewidth=linewidth, linestyles=linestyles, alpha=alpha,
                             scatter=scatter, i2o=i2o, figsize=figsize, confidence=confidence, savefig=savefig,**kwargs)
     else:
         if figsize==None: figsize=(13,4)
-        cam_batch_plot_multi_fig(batch, model, layer=layer, func_cam=func_cam, reduction=reduction, force_scale=force_scale,
-                            scale_range=scale_range, cmap=cmap, linewidth=linewidth, linestyles=linestyles, alpha=alpha,
-                            scatter=scatter, i2o=i2o, figsize=figsize, confidence=confidence, savefig=savefig, **kwargs)
-
-
+    return cam_batch_plot_multi_fig(batch, model, layer=layer, func_cam=func_cam, reduction=reduction, force_scale=force_scale,                                             scale_range=scale_range, cmap=cmap, linewidth=linewidth, linestyles=linestyles, alpha=alpha, scatter=scatter, i2o=i2o,                           figsize=figsize,confidence=confidence, savefig=savefig, **kwargs)
 
 # Cell
 @delegates(LineCollection.__init__)
@@ -391,7 +388,7 @@ def cam_batch_plot_one_fig(batch, model, layer=5, func_cam=cam_acts, reduction='
             where ``onoffseq`` is an even length tuple of on and off ink in points.
     """
 
-    plt.figure(figsize=figsize)
+    fig = plt.figure(figsize=figsize)
 
     # batch use-cases
     # batch can be either:
@@ -452,6 +449,7 @@ def cam_batch_plot_one_fig(batch, model, layer=5, func_cam=cam_acts, reduction='
     scalarmappaple.set_array(acts)
     plt.colorbar(scalarmappaple)
     plt.show()
+    return fig
 
 # Cell
 @delegates(LineCollection.__init__)
@@ -546,6 +544,8 @@ def cam_batch_plot_multi_fig(batch, model, layer=5, func_cam=cam_acts, reduction
         plt.show()
 
     if savefig!=None: plt.savefig(savefig)
+
+    return fig
 
 # Cell
 # Example of i2o() function
