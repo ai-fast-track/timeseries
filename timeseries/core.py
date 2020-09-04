@@ -4,21 +4,21 @@ __all__ = ['test_eq_tensor', 'TensorTS', 'ToTensorTS', 'TSBlock', 'get_min_max',
            'Normalize', 'default_show_batch', 'lbl_dict', 'TSDataLoaders', 'get_n_channels', 'Ranger', 'ts_learner']
 
 # Cell
-from fastai2.basics import *
+from fastai.basics import *
 
 # Cell
 from .data import *
 from .models.inception_time import *
 
 # Cell
-from fastai2.vision.data import get_grid
-from fastai2.learner import *
-from fastai2.metrics import *
-from fastai2.optimizer import *
-from fastai2.callback.hook import *
-from fastai2.callback.schedule import *
-from fastai2.callback.progress import *
-# from fastai2.callback.mixup import *
+from fastai.vision.data import get_grid
+from fastai.learner import *
+from fastai.metrics import *
+from fastai.optimizer import *
+from fastai.callback.hook import *
+from fastai.callback.schedule import *
+from fastai.callback.progress import *
+# from fastai.callback.mixup import *
 
 # Cell
 def test_eq_tensor(a,b):

@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
-from fastai2.torch_core import *
-from fastai2.layers import *
-from fastai2.imports import *
+from fastai.torch_core import *
+from fastai.layers import *
+from fastai.imports import *
 
 # Iception Time paper: https://arxiv.org/abs/1909.04939
 

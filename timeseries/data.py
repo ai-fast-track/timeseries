@@ -4,8 +4,8 @@ __all__ = ['TSData', 'get_ts_items', 'show_timeseries', 'file_extract_at_filenam
            'get_UCR_univariate_list', 'get_UCR_multivariate_list']
 
 # Cell
-from fastai2.basics import *
-from fastai2.data.all import *
+from fastai.basics import *
+from fastai.data.all import *
 
 # Cell
 class TSData():
