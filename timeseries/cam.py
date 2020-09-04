@@ -5,10 +5,10 @@ __all__ = ['CMAP', 'hooked_backward', 'hook_acts', 'cam_acts', 'acts_scaled', 'g
            'cam_batch_plot_multi_fig', 'i2o', 'lbl_dict']
 
 # Cell
-from fastai2.imports import *
-from fastai2.basics import *
-from fastai2.callback.hook import *
-from fastai2.vision.data import get_grid
+from fastai.imports import *
+from fastai.basics import *
+from fastai.callback.hook import *
+from fastai.vision.data import get_grid
 
 # Cell
 from matplotlib.collections import LineCollection

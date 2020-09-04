@@ -1,5 +1,5 @@
-# `timeseries` package for fastai2
-> **`timeseries`** is a Timeseries Classification and Regression package for fastai2.
+# `timeseries` package for fastai
+> **`timeseries`** is a Timeseries Classification and Regression package for fastai.
 
 
 <a href="https://colab.research.google.com/github/ai-fast-track/timeseries/blob/master/nbs/index.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
@@ -7,11 +7,11 @@
 ![](nbs/images/docs.png) [timeseries package documentation](https://ai-fast-track.github.io/timeseries/)
 
 ## Installation
-> There are may ways to install `timeseries` package. Since `timeseries` is built using `fastai2`, there are also different ways to install fastai2. We will show 2 differents ways to install them and explain the motivation behin each one of them.
+> There are may ways to install `timeseries` package. Since `timeseries` is built using `fastai`, there are also different ways to install fastai. We will show 2 differents ways to install them and explain the motivation behin each one of them.
 
 ### Method 1 : Editable Version
-#### 1A - Installing fastai2
-> Important :Only if you have not already installed `fastai2`,install [fastai2](https://dev.fast.ai/#Installing) by following the steps described there.
+#### 1A - Installing fastai
+> Important :Only if you have not already installed `fastai`,install [fastai](https://dev.fast.ai/#Installing) by following the steps described there.
 
 #### 1B - Installing `timeseries` on a local machine
 > Note :Installing an editable version of a package means that you will install a package from its corresponding github repository on your local machine. By doing so, you can pull the latest version whenever a new version is pushed.
@@ -24,13 +24,13 @@ pip install -e .
 ```
 
 ### Method 2 : Non Editable version
-> Note :Everytime you run the `!pip install git+https:// ...`, you are installing the package latest version stored on github. > Important :As both fastai2 and `timeseries` are still under development, this is an easy way to use them in Google Colab or any other online platform. You can also use it on your local machine.
+> Note :Everytime you run the `!pip install git+https:// ...`, you are installing the package latest version stored on github. > Important :As both fastai and `timeseries` are still under development, this is an easy way to use them in Google Colab or any other online platform. You can also use it on your local machine.
 
-#### 2A - Installing `fastai2` from its github repository
+#### 2A - Installing `fastai` from its github repository
 
 ```
 # Run this cell to install the latest version of fastai shared on github
-!pip install git+https://github.com/fastai/fastai2.git
+!pip install git+https://github.com/fastai/fastai.git
 ```
 
 ```
@@ -57,14 +57,14 @@ pip install -e .
 
 
 ```
-from fastai2.basics import *
+from fastai.basics import *
 ```
 
 ```
 from timeseries.all import *
 ```
 
-## Tutorial on timeseries package for fastai2
+## Tutorial on timeseries package for fastai
 
 ## Example : NATOS dataset
 
